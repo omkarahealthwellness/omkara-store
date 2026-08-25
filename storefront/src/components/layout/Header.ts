@@ -10,8 +10,8 @@ export function renderHeader(): string {
       <div class="container">
         <div class="brand">
           <a href="#" id="header-brand-link" class="header-brand-link" style="display: flex; align-items: center; gap: var(--space-2); color: var(--color-brand-warm); text-decoration: none;">
-            <img src="/assets/icon-192.svg" alt="OMKARA logo" class="header-logo-img" width="28" height="28" fetchpriority="high" decoding="async" style="filter: brightness(0) invert(1);" />
-            <h1 class="heading-3 brand-name header-brand-text" style="margin: 0; line-height: 1;">OMKARA</h1>
+            <img src="/assets/icon-192.svg" alt="OMKARA logo" class="header-logo-img" width="28" height="28" fetchpriority="high" decoding="async" style="filter: brightness(0) saturate(100%) invert(88%) sepia(21%) saturate(542%) hue-rotate(338deg) brightness(101%) contrast(96%);" />
+            <h1 class="heading-3 brand-name header-brand-text" style="margin: 0; line-height: 1; color: inherit;">OMKARA</h1>
           </a>
         </div>
         
