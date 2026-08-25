@@ -10,7 +10,11 @@
     "postinstall": "npm install --prefix ../shared"
   },
   "devDependencies": {
+    "esbuild": "^0.28.2",
     "typescript": "~6.0.2",
     "vite": "^8.2.2"
+  },
+  "dependencies": {
+    "firebase": "^12.18.0"
   }
 }
