@@ -36,7 +36,7 @@ export function renderFooter(config?: SiteConfig): string {
         {
           id: 'location',
           label: config?.contact?.location || 'Bikaner, Rajasthan',
-          href: '#',
+          href: `https://maps.google.com/?q=${encodeURIComponent(config?.contact?.location || 'Bikaner, Rajasthan')}`,
           visible: true,
           order: 1,
         },
@@ -53,6 +53,9 @@ export function renderFooter(config?: SiteConfig): string {
 
   // Icon mapping for footer link prefixes
   const iconMap: Record<string, string> = {
+    story: 'icon-star',
+    philosophy: 'icon-leaf',
+    help: 'icon-mail',
     whatsapp: 'icon-whatsapp',
     location: 'icon-map-pin',
     email: 'icon-mail',
@@ -69,7 +72,7 @@ export function renderFooter(config?: SiteConfig): string {
             const isContentModal = !isExternal && cleanSlug !== '' && cleanSlug !== 'admin';
             const dataAttr = isContentModal ? `data-content-slug="${cleanSlug}"` : '';
             const iconName = iconMap[link.id];
-            const iconHtml = iconName ? renderIcon(iconName, 14, iconName === 'icon-whatsapp' ? 'icon-filled footer-link-icon' : 'footer-link-icon') + ' ' : '';
+            const iconHtml = iconName ? renderIcon(iconName, 14, iconName === 'icon-whatsapp' ? 'icon-filled footer-link-icon' : 'footer-link-icon') : '';
 
             return `
               <a
@@ -78,7 +81,9 @@ export function renderFooter(config?: SiteConfig): string {
                 ${dataAttr}
                 ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}
               >
-                ${iconHtml}${link.label}
+                <span style="color: var(--color-brand-accent); opacity: 0.5;">|</span>
+                ${iconHtml}
+                <span>${link.label}</span>
               </a>
             `;
           })
