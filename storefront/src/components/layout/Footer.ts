@@ -62,7 +62,7 @@ export function renderFooter(config?: SiteConfig): string {
     const linkGroupsHtml = linkGroups
       .map((group) => {
         const linksHtml = group.links
-          .filter((l) => l.visible !== false)
+          .filter((l) => l.visible !== false && !l.label.includes('Admin Portal'))
           .map((link) => {
             const isExternal = link.href.startsWith('http') || link.href.startsWith('mailto:') || link.href.startsWith('tel:');
             const cleanSlug = link.href.replace(/^[#/]+/, '');
@@ -99,8 +99,8 @@ export function renderFooter(config?: SiteConfig): string {
         <div class="footer-grid">
           <!-- Brand Section -->
           <div class="footer-section" style="max-width: 320px;">
-            <h3 class="footer-brand-name heading-3 brand-name">
-              <img src="/assets/icon-192.svg" alt="" width="24" height="24" class="footer-logo-img" />
+            <h3 class="footer-brand-name heading-3 brand-name" style="color: #FFFFF0;">
+              <img src="/assets/icon-192.svg" alt="" width="24" height="24" class="footer-logo-img" style="filter: brightness(0) invert(1);" />
               ${brandName}
             </h3>
             <p class="tagline footer-tagline">${tagline}</p>

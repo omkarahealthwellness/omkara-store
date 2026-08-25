@@ -23,24 +23,16 @@ export function renderHero(
     return announcementHtml;
   }
 
-  const title = hero?.title || 'Rooted in the Heritage of Bikaner';
-  const formattedTitle = title.replace(/\\n|\n/g, '<br/>');
-  const subtitle = hero?.subtitle || tagline;
-  const ctaText = hero?.ctaText || 'Explore Menu';
+  // User asked for an image banner via jsdelivr link
+  const bannerImage = 'https://cdn.jsdelivr.net/gh/omkarahealthwellness/omkara-cdn@main/banner.jpg';
   const ctaLink = hero?.ctaLink || '#category-nav-container';
 
   return `
     ${announcementHtml}
-    <section class="hero" id="hero-section">
-      <div class="hero-grain"></div>
-      <div class="container hero-content">
-        <h2 class="heading-2 animate-fade-in-up hero-title">${formattedTitle}</h2>
-        <p class="tagline animate-fade-in-up hero-subtitle" style="animation-delay: 0.1s;">${subtitle}</p>
-        <a href="${ctaLink}" class="hero-cta-btn animate-fade-in-up" id="hero-cta-btn" style="animation-delay: 0.2s;">
-          <span>${ctaText}</span>
-          ${renderIcon('icon-chevron-down', 18)}
-        </a>
-      </div>
+    <section class="hero" id="hero-section" style="padding-block: 0; position: relative;">
+      <a href="${ctaLink}" id="hero-cta-btn" style="display: block; width: 100%; text-decoration: none;">
+        <img src="${bannerImage}" alt="OMKARA Hero Banner" style="width: 100%; height: auto; max-height: 60vh; object-fit: cover; display: block;" onerror="this.src='/assets/placeholder.webp'" />
+      </a>
     </section>
   `;
 }

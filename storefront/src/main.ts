@@ -11,7 +11,6 @@ import { setupHeader, updateHeaderCartBadge } from './components/layout/Header';
 import { renderHero, setupHero } from './components/layout/Hero';
 import { renderFooter, setupFooter } from './components/layout/Footer';
 import { setupBottomNav, updateBottomNavBadge } from './components/layout/BottomNav';
-import { renderSearchBar, setupSearchBar } from './components/ui/SearchBar';
 import { renderCategoryNav, setupCategoryNav } from './components/ui/CategoryNav';
 import { renderCategorySection, setupCategorySections } from './components/ui/CategorySection';
 import { openProductDetail } from './components/ui/ProductDetail';
@@ -30,7 +29,6 @@ const app = document.querySelector<HTMLDivElement>('#app')!;
 // Initial main content layout
 const initialContent = `
   <div class="container" style="padding-block: var(--space-4);">
-    ${renderSearchBar()}
     <div id="category-nav-container"></div>
     <div id="search-results"></div>
     <div id="menu-content">
@@ -136,79 +134,3 @@ loadStorefrontMenu()
     }
   });
 
-// Setup Search Bar with Click-to-Open Details
-setupSearchBar((query: string) => {
-  const resultsContainer = document.getElementById('search-results');
-  const menuContent = document.getElementById('menu-content');
-  const navContainer = document.getElementById('category-nav-container');
-
-  if (!resultsContainer || !menuContent) return;
-
-  if (!query) {
-    resultsContainer.innerHTML = '';
-    menuContent.style.display = 'block';
-    if (navContainer) navContainer.style.display = 'block';
-    return;
-  }
-
-  menuContent.style.display = 'none';
-  if (navContainer) navContainer.style.display = 'none';
-
-  const matches = allProducts.filter((p: Product) => {
-    const q = query.toLowerCase();
-    return (
-      p.name.toLowerCase().includes(q) ||
-      p.tags.some((t: string) => t.toLowerCase().includes(q)) ||
-      p.categoryId.toLowerCase().includes(q) ||
-      (p.description && p.description.toLowerCase().includes(q))
-    );
-  });
-
-  if (matches.length === 0) {
-    resultsContainer.innerHTML = `
-      <div style="text-align: center; padding-block: var(--space-8);">
-        <p class="body">No products found for "${escapeHtml(query)}"</p>
-        <p class="body-sm" style="color: var(--color-text-secondary); margin-top: var(--space-2);">Try searching for "smoothie" or "sprouts"</p>
-      </div>
-    `;
-  } else {
-    resultsContainer.innerHTML = `
-      <div style="padding-block: var(--space-4);">
-        <h3 class="label" style="margin-bottom: var(--space-4);">Search Results (${matches.length})</h3>
-        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: var(--space-4);">
-          ${matches
-            .map((p: Product) => {
-              const defaultVariant = p.variants.find((v: ProductVariant) => v.isDefault) || p.variants[0];
-              const price = defaultVariant ? defaultVariant.price : 0;
-              return `
-              <li
-                class="search-result-item"
-                data-product-id="${p.id}"
-                style="padding: var(--space-3); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); background-color: var(--color-surface-secondary); cursor: pointer;"
-              >
-                <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                  <strong>${p.name}</strong>
-                  <span style="font-weight: var(--weight-bold); color: var(--color-brand-accent);">${formatPrice(price)}</span>
-                </div>
-                <div class="caption" style="color: var(--color-text-secondary); margin-top: 2px;">${p.tags.join(', ')}</div>
-              </li>
-            `;
-            })
-            .join('')}
-        </ul>
-      </div>
-    `;
-
-    // Wire clicks on search results to open product detail
-    const resultItems = resultsContainer.querySelectorAll<HTMLElement>('.search-result-item');
-    resultItems.forEach((item) => {
-      item.addEventListener('click', () => {
-        const prodId = item.dataset.productId;
-        const matched = allProducts.find((p) => p.id === prodId);
-        if (matched) {
-          openProductDetail(matched);
-        }
-      });
-    });
-  }
-});
