@@ -3,12 +3,11 @@
 // ============================================================
 
 import type { HeroConfig, AnnouncementConfig } from 'shared/types/config';
-import { renderIcon } from '../ui/Icon';
+
 
 export function renderHero(
   hero?: HeroConfig,
-  announcement?: AnnouncementConfig,
-  tagline: string = 'SEHAT BHI. SWAAD BHI.'
+  announcement?: AnnouncementConfig
 ): string {
   const announcementHtml =
     announcement && announcement.visible && announcement.text

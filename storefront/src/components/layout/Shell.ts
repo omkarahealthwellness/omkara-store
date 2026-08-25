@@ -13,7 +13,7 @@ export function renderShell(mainContent: string, config?: SiteConfig): string {
     <div class="shell" id="app-shell">
       ${renderHeader()}
       <div id="hero-slot">
-        ${renderHero(config?.hero, config?.announcement, config?.tagline)}
+        ${renderHero(config?.hero, config?.announcement)}
       </div>
       <main class="main-content">
         ${mainContent}

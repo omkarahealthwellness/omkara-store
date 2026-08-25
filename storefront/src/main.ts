@@ -19,10 +19,8 @@ import { openContentPageModal } from './components/ui/ContentPageModal';
 import { onCartChange } from './store/cart';
 import { loadStorefrontMenu } from 'shared/dal/menu';
 import type { StorefrontMenu } from 'shared/dal/menu';
-import type { Product, ProductVariant } from 'shared/types/product';
-import { formatPrice } from 'shared/constants/defaults';
+import type { Product } from 'shared/types/product';
 import { DEFAULT_CONTACT } from 'shared/constants/brand';
-import { escapeHtml } from './utils/sanitize';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 
@@ -89,8 +87,7 @@ loadStorefrontMenu()
     if (heroSlot) {
       heroSlot.innerHTML = renderHero(
         menuData.config?.hero,
-        menuData.config?.announcement,
-        menuData.config?.tagline
+        menuData.config?.announcement
       );
       setupHero();
     }
