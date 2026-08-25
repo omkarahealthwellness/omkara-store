@@ -35,7 +35,7 @@ export function renderSidebar(currentHash: string = '#dashboard'): string {
   return `
     <aside class="admin-sidebar" id="admin-sidebar">
       <div class="sidebar-header">
-        <h2 class="sidebar-brand-title">
+        <h2 class="sidebar-brand-title" style="display: flex; align-items: center; gap: var(--space-2); margin: 0;">
           <span style="color: var(--color-brand-accent);">ॐ</span> OMKARA
         </h2>
         <span class="badge" style="background: rgba(255,255,255,0.15); color: var(--color-brand-warm); font-size: 10px;">ADMIN</span>

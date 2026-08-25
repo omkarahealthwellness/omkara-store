@@ -1,9 +1,11 @@
 // ============================================================
-// OMKARA Admin — CDN & Image Optimizer Panel (Phases 35–36)
+// OMKARA Admin — CDN & Image Optimizer Panel
 // ============================================================
-// Client-side 512x512 square crop, resize, WebP compression,
-// and CDN URL generator with instant download.
-// ============================================================
+import { showToast } from '../ui/Toast';
+
+const REPO_OWNER = 'omkarahealthwellness';
+const REPO_NAME = 'omkara-cdn';
+const BRANCH = 'main';
 
 export function renderCDNPanelView(): string {
   return `
@@ -11,8 +13,21 @@ export function renderCDNPanelView(): string {
       <div style="margin-bottom: var(--space-6);">
         <h2 class="heading-2" style="color: var(--color-brand-primary);">CDN & Image Optimizer</h2>
         <p class="body-sm" style="color: var(--color-text-secondary); margin-top: 2px;">
-          Automatically converts raw food photography into ultra-fast 512×512 WebP assets with 0 byte server overhead.
+          Automatically converts raw food photography into ultra-fast 512×512 WebP assets, pushes to GitHub CDN, and manages gallery.
         </p>
+      </div>
+
+      <!-- GitHub Token Configuration -->
+      <div class="admin-card" style="margin-bottom: var(--space-6);">
+        <div style="display: flex; gap: var(--space-4); align-items: flex-end; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 250px;">
+            <label class="form-label" for="cdn-github-token">GitHub Personal Access Token (Requires 'repo' scope)</label>
+            <input type="password" id="cdn-github-token" class="form-input" placeholder="ghp_..." />
+          </div>
+          <button type="button" class="btn btn-secondary" id="cdn-load-gallery-btn">
+            Load Gallery
+          </button>
+        </div>
       </div>
 
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6);">
@@ -61,9 +76,14 @@ export function renderCDNPanelView(): string {
               <span class="caption" style="color: var(--color-success); font-weight: var(--weight-bold); display: block;">Optimized Size</span>
               <strong id="cdn-optimized-size" style="color: var(--color-brand-primary); font-size: var(--text-sm);">— KB</strong>
             </div>
-            <button type="button" class="btn btn-primary btn-sm" id="cdn-download-btn">
-              ⬇ Download .webp
-            </button>
+            <div style="display: flex; gap: var(--space-2);">
+              <button type="button" class="btn btn-secondary btn-sm" id="cdn-download-btn" title="Download Locally">
+                ⬇
+              </button>
+              <button type="button" class="btn btn-primary btn-sm" id="cdn-push-btn">
+                ☁️ Push to CDN
+              </button>
+            </div>
           </div>
 
           <!-- CDN Link Helper -->
@@ -75,7 +95,7 @@ export function renderCDNPanelView(): string {
                 id="cdn-generated-url"
                 class="form-input"
                 readonly
-                value="https://cdn.jsdelivr.net/gh/user/omkara-cdn/products/dish-photo.webp"
+                value="https://cdn.jsdelivr.net/gh/${REPO_OWNER}/${REPO_NAME}@${BRANCH}/products/dish-photo.webp"
                 style="background-color: var(--color-surface-secondary); font-size: var(--text-xs); font-family: var(--font-mono);"
               />
               <button type="button" class="btn btn-secondary btn-sm" id="cdn-copy-url-btn">
@@ -83,6 +103,14 @@ export function renderCDNPanelView(): string {
               </button>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Gallery Section -->
+      <div class="admin-card" style="margin-top: var(--space-6);">
+        <h3 class="heading-4" style="color: var(--color-brand-primary); margin-bottom: var(--space-4);">CDN Image Gallery</h3>
+        <div id="cdn-gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--space-4);">
+          <p class="body-sm" style="color: var(--color-text-secondary); grid-column: 1 / -1;">Enter GitHub token and click Load Gallery.</p>
         </div>
       </div>
     </div>
@@ -99,16 +127,32 @@ export function setupCDNPanelView(): void {
   const statsBar = document.getElementById('cdn-stats-bar');
   const sizeDisplay = document.getElementById('cdn-optimized-size');
   const downloadBtn = document.getElementById('cdn-download-btn');
+  const pushBtn = document.getElementById('cdn-push-btn') as HTMLButtonElement | null;
   const urlInput = document.getElementById('cdn-generated-url') as HTMLInputElement | null;
   const copyBtn = document.getElementById('cdn-copy-url-btn');
+  const tokenInput = document.getElementById('cdn-github-token') as HTMLInputElement | null;
+  const loadGalleryBtn = document.getElementById('cdn-load-gallery-btn');
+  const galleryGrid = document.getElementById('cdn-gallery-grid');
 
   let currentBlob: Blob | null = null;
+  let currentBase64: string = '';
+
+  // Load token from localStorage
+  if (tokenInput) {
+    const savedToken = localStorage.getItem('omkara_github_token');
+    if (savedToken) {
+      tokenInput.value = savedToken;
+    }
+    tokenInput.addEventListener('change', () => {
+      localStorage.setItem('omkara_github_token', tokenInput.value);
+    });
+  }
 
   const updateUrl = () => {
     const fn = (filenameInput?.value.trim() || 'dish-photo').replace(/\.[^/.]+$/, '');
     if (previewFilename) previewFilename.textContent = `${fn}.webp`;
     if (urlInput) {
-      urlInput.value = `https://cdn.jsdelivr.net/gh/user/omkara-cdn/products/${fn}.webp`;
+      urlInput.value = `https://cdn.jsdelivr.net/gh/${REPO_OWNER}/${REPO_NAME}@${BRANCH}/products/${fn}.webp`;
     }
   };
 
@@ -118,16 +162,16 @@ export function setupCDNPanelView(): void {
 
   dropzone?.addEventListener('dragover', (e) => {
     e.preventDefault();
-    dropzone.style.borderColor = 'var(--color-brand-accent)';
+    if (dropzone) dropzone.style.borderColor = 'var(--color-brand-accent)';
   });
 
   dropzone?.addEventListener('dragleave', () => {
-    dropzone.style.borderColor = 'var(--color-border-default)';
+    if (dropzone) dropzone.style.borderColor = 'var(--color-border-default)';
   });
 
   dropzone?.addEventListener('drop', (e) => {
     e.preventDefault();
-    dropzone.style.borderColor = 'var(--color-border-default)';
+    if (dropzone) dropzone.style.borderColor = 'var(--color-border-default)';
     if (e.dataTransfer?.files && e.dataTransfer.files[0]) {
       processImageFile(e.dataTransfer.files[0]);
     }
@@ -173,6 +217,14 @@ export function setupCDNPanelView(): void {
               const kb = (blob.size / 1024).toFixed(1);
               if (sizeDisplay) sizeDisplay.textContent = `${kb} KB (512×512 WebP)`;
               if (statsBar) statsBar.style.display = 'flex';
+              
+              // Get base64 for GitHub push
+              const reader2 = new FileReader();
+              reader2.onloadend = () => {
+                const dataUrl = reader2.result as string;
+                currentBase64 = dataUrl.split(',')[1];
+              };
+              reader2.readAsDataURL(blob);
             }
           },
           'image/webp',
@@ -193,14 +245,150 @@ export function setupCDNPanelView(): void {
     a.click();
     URL.revokeObjectURL(a.href);
   });
+  
+  pushBtn?.addEventListener('click', async () => {
+    if (!currentBase64) return;
+    const token = tokenInput?.value.trim();
+    if (!token) {
+      showToast('Please enter your GitHub Personal Access Token first.');
+      return;
+    }
+    
+    const fn = (filenameInput?.value.trim() || 'dish-photo').replace(/\.[^/.]+$/, '');
+    const path = `products/${fn}.webp`;
+    const message = `Add ${fn}.webp`;
+    
+    try {
+      if (pushBtn) pushBtn.disabled = true;
+      if (pushBtn) pushBtn.textContent = 'Pushing...';
+      
+      // 1. Check if file exists to get SHA (for overwrite)
+      let sha = undefined;
+      const getRes = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/vnd.github.v3+json'
+        }
+      });
+      
+      if (getRes.ok) {
+        const data = await getRes.json();
+        sha = data.sha;
+      }
+      
+      // 2. Put file
+      const putRes = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: message,
+          content: currentBase64,
+          branch: BRANCH,
+          sha: sha
+        })
+      });
+      
+      if (!putRes.ok) {
+        const errorData = await putRes.json();
+        throw new Error(errorData.message || 'Failed to push to GitHub');
+      }
+      
+      showToast('Image successfully pushed to CDN!');
+      if (loadGalleryBtn) loadGalleryBtn.click(); // Reload gallery
+    } catch (err: any) {
+      showToast(err.message || 'Error pushing to GitHub');
+      console.error(err);
+    } finally {
+      if (pushBtn) {
+        pushBtn.disabled = false;
+        pushBtn.textContent = '☁️ Push to CDN';
+      }
+    }
+  });
 
   copyBtn?.addEventListener('click', () => {
     if (urlInput) {
       navigator.clipboard.writeText(urlInput.value);
-      copyBtn.textContent = 'Copied!';
+      if (copyBtn) copyBtn.textContent = 'Copied!';
       setTimeout(() => {
-        copyBtn.textContent = 'Copy';
+        if (copyBtn) copyBtn.textContent = 'Copy';
       }, 2000);
+    }
+  });
+  
+  // Gallery Logic
+  loadGalleryBtn?.addEventListener('click', async () => {
+    const token = tokenInput?.value.trim();
+    if (!galleryGrid) return;
+    
+    if (!token) {
+      galleryGrid.innerHTML = `<p class="body-sm" style="color: var(--color-error); grid-column: 1 / -1;">Please enter a GitHub token to load the gallery.</p>`;
+      return;
+    }
+    
+    galleryGrid.innerHTML = `<p class="body-sm" style="color: var(--color-text-secondary); grid-column: 1 / -1;">Loading gallery...</p>`;
+    
+    try {
+      const getRes = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/products`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/vnd.github.v3+json'
+        }
+      });
+      
+      if (!getRes.ok) {
+        if (getRes.status === 404) {
+           galleryGrid.innerHTML = `<p class="body-sm" style="color: var(--color-text-secondary); grid-column: 1 / -1;">No images found in products/ yet.</p>`;
+           return;
+        }
+        const errorData = await getRes.json();
+        throw new Error(errorData.message || 'Failed to fetch gallery');
+      }
+      
+      const files: any[] = await getRes.json();
+      const imageFiles = files.filter(f => f.type === 'file' && (f.name.endsWith('.webp') || f.name.endsWith('.jpg') || f.name.endsWith('.png')));
+      
+      if (imageFiles.length === 0) {
+        galleryGrid.innerHTML = `<p class="body-sm" style="color: var(--color-text-secondary); grid-column: 1 / -1;">No images found in CDN.</p>`;
+        return;
+      }
+      
+      galleryGrid.innerHTML = imageFiles.map(file => {
+        const jsdelivrUrl = `https://cdn.jsdelivr.net/gh/${REPO_OWNER}/${REPO_NAME}@${BRANCH}/${file.path}`;
+        return `
+          <div class="gallery-item" style="border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); overflow: hidden; background: var(--color-surface-primary); display: flex; flex-direction: column;">
+            <img src="${jsdelivrUrl}" alt="${file.name}" style="width: 100%; aspect-ratio: 1/1; object-fit: cover;" loading="lazy" />
+            <div style="padding: var(--space-2); display: flex; flex-direction: column; gap: var(--space-2);">
+              <span class="caption" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${file.name}">${file.name}</span>
+              <button type="button" class="btn btn-secondary btn-sm copy-gallery-btn" data-url="${jsdelivrUrl}" style="width: 100%; font-size: var(--text-xs); padding: var(--space-1);">Copy Link</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+      
+      // Attach copy listeners
+      const copyBtns = galleryGrid.querySelectorAll('.copy-gallery-btn');
+      copyBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const target = e.target as HTMLButtonElement;
+          const url = target.getAttribute('data-url');
+          if (url) {
+            navigator.clipboard.writeText(url);
+            const originalText = target.textContent;
+            target.textContent = 'Copied!';
+            setTimeout(() => {
+              target.textContent = originalText;
+            }, 2000);
+          }
+        });
+      });
+      
+    } catch (err: any) {
+      galleryGrid.innerHTML = `<p class="body-sm" style="color: var(--color-error); grid-column: 1 / -1;">Error: ${err.message}</p>`;
     }
   });
 }

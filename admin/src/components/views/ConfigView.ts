@@ -85,6 +85,10 @@ export function renderConfigView(config: SiteConfig): string {
         <div class="admin-card">
           <h3 class="heading-4" style="color: var(--color-brand-primary); margin-bottom: var(--space-4);">Hero Section</h3>
           <div class="form-group">
+            <label class="form-label" for="cfg-hero-image">Hero Banner Image URL</label>
+            <input type="url" id="cfg-hero-image" class="form-input" value="${config.hero?.imageUrl || ''}" placeholder="e.g., https://cdn.jsdelivr.net/gh/omkarahealthwellness/omkara-cdn@main/banner.jpg" />
+          </div>
+          <div class="form-group">
             <label class="form-label" for="cfg-hero-title">Headline</label>
             <input type="text" id="cfg-hero-title" class="form-input" value="${config.hero?.title || 'Rooted in the Heritage of Bikaner'}" />
           </div>
@@ -147,6 +151,7 @@ export function setupConfigView(
     const announceStyle = ((document.getElementById('cfg-announce-style') as HTMLSelectElement)?.value as 'promo' | 'info' | 'warning') || 'promo';
     const announceVisible = (document.getElementById('cfg-announce-visible') as HTMLSelectElement)?.value === 'true';
 
+    const heroImage = (document.getElementById('cfg-hero-image') as HTMLInputElement)?.value.trim() || '';
     const heroTitle = (document.getElementById('cfg-hero-title') as HTMLInputElement)?.value.trim() || '';
     const heroSubtitle = (document.getElementById('cfg-hero-subtitle') as HTMLInputElement)?.value.trim() || '';
     const heroCta = (document.getElementById('cfg-hero-cta') as HTMLInputElement)?.value.trim() || 'Explore Menu';
@@ -180,6 +185,7 @@ export function setupConfigView(
       },
       hero: {
         ...currentConfig.hero,
+        imageUrl: heroImage,
         title: heroTitle,
         subtitle: heroSubtitle,
         ctaText: heroCta,

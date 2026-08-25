@@ -22,8 +22,8 @@ export function renderHero(
     return announcementHtml;
   }
 
-  // User asked for an image banner via jsdelivr link
-  const bannerImage = 'https://cdn.jsdelivr.net/gh/omkarahealthwellness/omkara-cdn@main/banner.jpg';
+  // User asked for an image banner, read from config with a fallback
+  const bannerImage = hero?.imageUrl || 'https://cdn.jsdelivr.net/gh/omkarahealthwellness/omkara-cdn@main/banner.jpg';
   const ctaLink = hero?.ctaLink || '#category-nav-container';
 
   return `
