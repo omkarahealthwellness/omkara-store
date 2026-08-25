@@ -14,10 +14,11 @@ export function renderFooter(config?: SiteConfig): string {
   const bottomText = config?.footer?.bottomText || 'OMKARA · BIKANER, RAJASTHAN';
   const bottomSubtext = config?.footer?.bottomSubtext || 'NOURISH • BALANCE • LONGEVITY';
 
-  const linkGroups = config?.footer?.linkGroups || [
+  const linkGroups = (config?.footer?.linkGroups || [
     {
       heading: 'Quick Links',
       links: [
+        { id: 'shop', label: 'Shop All', href: '#category-nav-container', visible: true, order: -1 },
         { id: 'story', label: 'Our Story', href: '#story', visible: true, order: 0 },
         { id: 'philosophy', label: 'Philosophy', href: '#philosophy', visible: true, order: 1 },
         { id: 'help', label: 'Help & FAQ', href: '#help', visible: true, order: 2 },
@@ -49,10 +50,16 @@ export function renderFooter(config?: SiteConfig): string {
         },
       ],
     },
-  ];
+  ]).map(group => ({ ...group, links: [...group.links] }));
+
+  // Inject Shop All if not present
+  if (linkGroups.length > 0 && !linkGroups[0].links.some(l => l.id === 'shop' || l.label.toLowerCase() === 'shop all')) {
+    linkGroups[0].links.unshift({ id: 'shop', label: 'Shop All', href: '#category-nav-container', visible: true, order: -1 });
+  }
 
   // Icon mapping for footer link prefixes
   const iconMap: Record<string, string> = {
+    shop: 'icon-cart',
     story: 'icon-star',
     philosophy: 'icon-leaf',
     help: 'icon-mail',
@@ -69,7 +76,7 @@ export function renderFooter(config?: SiteConfig): string {
           .map((link) => {
             const isExternal = link.href.startsWith('http') || link.href.startsWith('mailto:') || link.href.startsWith('tel:');
             const cleanSlug = link.href.replace(/^[#/]+/, '');
-            const isContentModal = !isExternal && cleanSlug !== '' && cleanSlug !== 'admin';
+            const isContentModal = !isExternal && cleanSlug !== '' && cleanSlug !== 'admin' && cleanSlug !== 'category-nav-container';
             const dataAttr = isContentModal ? `data-content-slug="${cleanSlug}"` : '';
             const iconName = iconMap[link.id];
             const iconHtml = iconName ? renderIcon(iconName, 14, iconName === 'icon-whatsapp' ? 'icon-filled footer-link-icon' : 'footer-link-icon') : '';
@@ -119,10 +126,14 @@ export function renderFooter(config?: SiteConfig): string {
             <h4 class="footer-heading label">Connect</h4>
             <div style="display: flex; flex-direction: column; gap: var(--space-2);">
               <a href="https://instagram.com/omkara.health.bkn" target="_blank" rel="noopener noreferrer" class="footer-link body-sm">
-                ${renderIcon('icon-instagram', 14, 'footer-link-icon')} Instagram
+                <span style="color: var(--color-brand-accent); opacity: 0.5;">|</span>
+                ${renderIcon('icon-instagram', 14, 'footer-link-icon')}
+                <span>Instagram</span>
               </a>
               <a href="https://wa.me/918560078208" target="_blank" rel="noopener noreferrer" class="footer-link body-sm">
-                ${renderIcon('icon-whatsapp', 14, 'icon-filled footer-link-icon')} WhatsApp
+                <span style="color: var(--color-brand-accent); opacity: 0.5;">|</span>
+                ${renderIcon('icon-whatsapp', 14, 'icon-filled footer-link-icon')}
+                <span>WhatsApp</span>
               </a>
             </div>
           </div>
@@ -133,9 +144,17 @@ export function renderFooter(config?: SiteConfig): string {
           <div class="footer-bottom-brand">${bottomText}</div>
           <div class="footer-bottom-motto">${bottomSubtext}</div>
           <div class="footer-bottom-links">
-            <a href="#privacy" data-content-slug="privacy" class="footer-link caption">Privacy Policy</a>
+            <a href="#privacy" data-content-slug="privacy" class="footer-link caption">
+              <span style="color: var(--color-brand-accent); opacity: 0.5;">|</span>
+              ${renderIcon('icon-external-link', 12, 'footer-link-icon')}
+              <span>Privacy Policy</span>
+            </a>
             <span class="footer-bottom-divider">•</span>
-            <a href="#terms" data-content-slug="terms" class="footer-link caption">Terms of Service</a>
+            <a href="#terms" data-content-slug="terms" class="footer-link caption">
+              <span style="color: var(--color-brand-accent); opacity: 0.5;">|</span>
+              ${renderIcon('icon-external-link', 12, 'footer-link-icon')}
+              <span>Terms of Service</span>
+            </a>
           </div>
           <p class="caption footer-copyright">&copy; ${new Date().getFullYear()} ${brandName}. All rights reserved.</p>
         </div>
@@ -158,4 +177,16 @@ export function setupFooter(onOpenPage: (slug: string) => void): void {
       }
     });
   });
+
+  const shopAllLink = document.querySelector<HTMLAnchorElement>('.site-footer a[href="#category-nav-container"]');
+  if (shopAllLink) {
+    shopAllLink.addEventListener('click', (e) => {
+      const target = document.getElementById('category-nav-container');
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+        history.pushState(null, '', '#category-nav-container');
+      }
+    });
+  }
 }
