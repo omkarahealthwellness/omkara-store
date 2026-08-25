@@ -24,13 +24,18 @@ export function renderHero(
 
   // User asked for an image banner, read from config with a fallback
   const bannerImage = hero?.imageUrl || 'https://cdn.jsdelivr.net/gh/omkarahealthwellness/omkara-cdn@main/banner.jpg';
+  const mobileBannerImage = hero?.mobileImageUrl || bannerImage;
   const ctaLink = hero?.ctaLink || '#category-nav-container';
 
   return `
     ${announcementHtml}
     <section class="hero" id="hero-section" style="padding-block: 0; position: relative;">
       <a href="${ctaLink}" id="hero-cta-btn" style="display: block; width: 100%; text-decoration: none;">
-        <img src="${bannerImage}" alt="OMKARA Hero Banner" style="width: 100%; height: auto; max-height: 60vh; object-fit: cover; display: block;" onerror="this.src='/assets/placeholder.webp'" />
+        <picture>
+          <source media="(max-width: 767px)" srcset="${mobileBannerImage}">
+          <source media="(min-width: 768px)" srcset="${bannerImage}">
+          <img src="${bannerImage}" alt="OMKARA Hero Banner" style="width: 100%; height: auto; object-fit: cover; display: block;" onerror="this.src='/assets/placeholder.webp'" />
+        </picture>
       </a>
     </section>
   `;
