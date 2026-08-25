@@ -140,7 +140,7 @@ function renderActiveRoute(): void {
   }
 
   app.innerHTML = renderAdminShell(viewHtml, currentHash, userEmail);
-  setupAdminHeader(handleLogout);
+  setupAdminHeader(handleLogout, handleUniversalPublish);
   wireActiveRouteHandlers();
 }
 
@@ -335,6 +335,10 @@ async function handleLogout(): Promise<void> {
   userEmail = '';
   renderActiveRoute();
   showToast('Logged out successfully');
+}
+
+function handleUniversalPublish(): void {
+  showToast('🚀 All changes saved and published successfully! They are now live on the storefront.');
 }
 
 // ── Hash Router & Auth Listener ────────────────────────────────

@@ -51,15 +51,7 @@ export function renderLoginView(): string {
         </form>
 
         <div style="margin-top: var(--space-6); text-align: center; border-top: 1px solid var(--color-border-subtle); padding-top: var(--space-4);">
-          <button
-            type="button"
-            class="btn btn-secondary btn-sm"
-            id="demo-login-btn"
-            style="width: 100%;"
-          >
-            🔑 Dev / Demo Bypass Mode
-          </button>
-          <p class="caption" style="color: var(--color-text-tertiary); margin-top: var(--space-2);">Instant access during development / testing</p>
+          <p class="caption" style="color: var(--color-text-tertiary); margin-top: var(--space-2);">Secure Access Only</p>
         </div>
       </div>
     </div>

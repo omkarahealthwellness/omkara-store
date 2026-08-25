@@ -12,6 +12,9 @@ export function renderAdminHeader(userEmail?: string): string {
       </div>
 
       <div style="display: flex; align-items: center; gap: var(--space-4);">
+        <button type="button" class="btn btn-primary btn-sm" id="admin-publish-btn" style="background: var(--color-brand-accent); border-color: var(--color-brand-accent);">
+          <span>🚀 Publish All</span>
+        </button>
         <div style="display: flex; align-items: center; gap: var(--space-2);">
           <span style="width: 8px; height: 8px; border-radius: var(--radius-full); background-color: var(--color-success); display: inline-block;"></span>
           <span class="body-sm" style="color: var(--color-text-secondary); font-weight: var(--weight-medium);">${displayEmail}</span>
@@ -24,7 +27,10 @@ export function renderAdminHeader(userEmail?: string): string {
   `;
 }
 
-export function setupAdminHeader(onLogout: () => void): void {
+export function setupAdminHeader(onLogout: () => void, onPublish: () => void): void {
   const logoutBtn = document.getElementById('admin-logout-btn');
   logoutBtn?.addEventListener('click', onLogout);
+
+  const publishBtn = document.getElementById('admin-publish-btn');
+  publishBtn?.addEventListener('click', onPublish);
 }

@@ -46,7 +46,7 @@ export function renderSidebar(currentHash: string = '#dashboard'): string {
       </nav>
 
       <div class="sidebar-footer">
-        <a href="http://localhost:5173" target="_blank" rel="noopener noreferrer" class="nav-link" style="padding: var(--space-2); font-size: var(--text-xs); color: rgba(255,255,255,0.6);">
+        <a href="https://omkara-store.pages.dev" target="_blank" rel="noopener noreferrer" class="nav-link" style="padding: var(--space-2); font-size: var(--text-xs); color: rgba(255,255,255,0.6);">
           <span>↗ Open Storefront</span>
         </a>
       </div>
