@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postinstall": "npm install --prefix ../shared"
   },
   "dependencies": {
     "firebase": "^12.10.0"
