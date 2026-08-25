@@ -31,11 +31,16 @@ export function renderHero(
     ${announcementHtml}
     <section class="hero" id="hero-section" style="padding-block: 0; position: relative;">
       <a href="${ctaLink}" id="hero-cta-btn" style="display: block; width: 100%; text-decoration: none;">
-        <picture>
-          <source media="(max-width: 767px)" srcset="${mobileBannerImage}">
-          <source media="(min-width: 768px)" srcset="${bannerImage}">
-          <img src="${bannerImage}" alt="OMKARA Hero Banner" style="width: 100%; height: auto; object-fit: cover; display: block;" onerror="this.src='/assets/placeholder.webp'" />
-        </picture>
+        <style>
+          .hero-banner-mobile { display: none !important; }
+          .hero-banner-desktop { display: block !important; width: 100%; height: auto; object-fit: cover; }
+          @media (max-width: 767px) {
+            .hero-banner-desktop { display: none !important; }
+            .hero-banner-mobile { display: block !important; width: 100%; height: auto; object-fit: cover; }
+          }
+        </style>
+        <img src="${bannerImage}" alt="OMKARA Hero Banner" class="hero-banner-desktop" onerror="this.onerror=null; this.src='/assets/placeholder.webp'" />
+        <img src="${mobileBannerImage}" alt="OMKARA Hero Banner Mobile" class="hero-banner-mobile" onerror="this.onerror=null; this.src='/assets/placeholder.webp'" />
       </a>
     </section>
   `;
