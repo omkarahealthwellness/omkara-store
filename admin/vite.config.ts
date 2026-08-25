@@ -17,13 +17,6 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: false,
     cssMinify: true,
-    minify: 'esbuild',
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          firebase: ['firebase/app', 'firebase/firestore', 'firebase/auth']
-        }
-      }
-    }
+    minify: 'esbuild'
   },
 });
