@@ -1,0 +1,75 @@
+/* ============================================================
+   OMKARA — Main Stylesheet Entry Point
+   ============================================================
+   Import order matters:
+   1. Tokens (CSS custom properties)
+   2. Reset (normalize browser defaults)
+   3. Typography (font loading + text styles)
+   4. Animations (keyframes + utilities)
+   5. Component styles (loaded per-component later)
+   ============================================================ */
+
+@import './tokens.css';
+@import './reset.css';
+@import './typography.css';
+@import './animations.css';
+@import './layout.css';
+@import './components.css';
+
+/* ── Global Utility Classes ──────────────────────────────────── */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding-inline: var(--content-padding);
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Scrollbar Styling ───────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-strong);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-default) transparent;
+}

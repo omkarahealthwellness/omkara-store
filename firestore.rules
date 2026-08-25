@@ -1,0 +1,109 @@
+// ============================================================
+// OMKARA — Firestore Security Rules
+// ============================================================
+// Principle: Public read for published data, admin-only write.
+//
+// COLLECTIONS:
+//   /config/{configId}    → Site settings (public read, admin write)
+//   /categories/{catId}   → Menu categories (public read, admin write)
+//   /products/{prodId}    → Products (public read, admin write)
+//   /content/{pageId}     → Content pages (public read, admin write)
+//
+// ADMIN AUTH:
+//   Firebase Auth email/password. Admin UID stored in config
+//   or checked via custom claims (future). For MVP, we use
+//   request.auth != null as the admin gate since only the
+//   business owner has an account.
+// ============================================================
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Helper Functions ──────────────────────────────────────
+
+    // Check if the request is from an authenticated user (admin)
+    function isAdmin() {
+      return request.auth != null;
+    }
+
+    // Check if a document field is being published (status = 'published')
+    function isPublished() {
+      return resource.data.status == 'published';
+    }
+
+    // Validate that required string fields are non-empty
+    function isNonEmptyString(field) {
+      return field is string && field.size() > 0;
+    }
+
+    // Validate that a number is non-negative
+    function isNonNegative(field) {
+      return field is number && field >= 0;
+    }
+
+    // ── Config Collection ─────────────────────────────────────
+    // Site-wide settings: brand, contact, WhatsApp, hero, footer
+    // Public can read (storefront needs these), only admin can write.
+
+    match /config/{configId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // ── Categories Collection ─────────────────────────────────
+    // Menu categories with name, order, colors, images, visibility.
+    // Public can read all (storefront filters by status client-side
+    // for performance — avoids per-doc read queries with where clauses
+    // which would cost more on Spark plan).
+    // Only admin can create/update/delete.
+
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow create: if isAdmin()
+        && isNonEmptyString(request.resource.data.name)
+        && request.resource.data.keys().hasAll(['name', 'sortOrder', 'status']);
+      allow update: if isAdmin()
+        && (!('name' in request.resource.data) || isNonEmptyString(request.resource.data.name));
+      allow delete: if isAdmin();
+    }
+
+    // ── Products Collection ───────────────────────────────────
+    // Products with full data: name, description, variants, addons,
+    // availability, images, ordering position, etc.
+    // Same read strategy as categories — public reads all,
+    // client-side filtering.
+
+    match /products/{productId} {
+      allow read: if true;
+      allow create: if isAdmin()
+        && isNonEmptyString(request.resource.data.name)
+        && isNonEmptyString(request.resource.data.categoryId)
+        && request.resource.data.variants is list;
+      allow update: if isAdmin()
+        && (!('name' in request.resource.data) || isNonEmptyString(request.resource.data.name));
+      allow delete: if isAdmin();
+    }
+
+    // ── Content Collection ────────────────────────────────────
+    // Static content pages: About, Philosophy, Help, etc.
+    // Public read for published pages, admin write.
+
+    match /content/{pageId} {
+      allow read: if true;
+      allow create: if isAdmin()
+        && isNonEmptyString(request.resource.data.title);
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // ── Deny all other paths ──────────────────────────────────
+    // Explicit deny for any undeclared collections.
+    // This is a security best practice.
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

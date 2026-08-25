@@ -1,0 +1,145 @@
+- generic [active] [ref=f19e1]:
+  - generic [ref=f19e19]:
+    - complementary [ref=f19e20]:
+      - generic [ref=f19e21]:
+        - heading "ॐ OMKARA" [level=2] [ref=f19e22]:
+          - generic [ref=f19e23]: ॐ
+          - text: OMKARA
+        - generic [ref=f19e24]: ADMIN
+      - navigation [ref=f19e25]:
+        - link "📊 Dashboard" [ref=f19e26] [cursor=pointer]:
+          - /url: "#dashboard"
+          - generic [ref=f19e27]: 📊
+          - generic [ref=f19e28]: Dashboard
+        - link "🥗 Products" [ref=f19e29] [cursor=pointer]:
+          - /url: "#products"
+          - generic [ref=f19e30]: 🥗
+          - generic [ref=f19e31]: Products
+        - link "📁 Categories" [ref=f19e32] [cursor=pointer]:
+          - /url: "#categories"
+          - generic [ref=f19e33]: 📁
+          - generic [ref=f19e34]: Categories
+        - link "⚡ Availability Matrix" [ref=f19e35] [cursor=pointer]:
+          - /url: "#matrix"
+          - generic [ref=f19e36]: ⚡
+          - generic [ref=f19e37]: Availability Matrix
+        - link "⚙️ Site Config" [ref=f19e38] [cursor=pointer]:
+          - /url: "#config"
+          - generic [ref=f19e39]: ⚙️
+          - generic [ref=f19e40]: Site Config
+        - link "📝 Content Pages" [ref=f19e41] [cursor=pointer]:
+          - /url: "#content"
+          - generic [ref=f19e42]: 📝
+          - generic [ref=f19e43]: Content Pages
+        - link "🖼️ CDN & Images" [ref=f19e44] [cursor=pointer]:
+          - /url: "#cdn"
+          - generic [ref=f19e45]: 🖼️
+          - generic [ref=f19e46]: CDN & Images
+      - link "↗ Open Storefront" [ref=f19e48] [cursor=pointer]:
+        - /url: http://localhost:5173
+    - generic [ref=f19e50]:
+      - banner [ref=f19e51]:
+        - heading "Control Center" [level=3] [ref=f19e53]
+        - generic [ref=f19e54]:
+          - generic [ref=f19e55]: admin@omkara.com (Dev Mode)
+          - button "Logout" [ref=f19e58] [cursor=pointer]
+      - main [ref=f19e60]:
+        - generic [ref=f19e61]:
+          - generic [ref=f19e62]:
+            - generic [ref=f19e63]:
+              - heading "Storefront Overview" [level=2] [ref=f19e64]
+              - paragraph [ref=f19e65]: Manage live catalog, stock states, and digital branding.
+            - generic [ref=f19e66]:
+              - link "+ Add Product" [ref=f19e67] [cursor=pointer]:
+                - /url: "#products"
+              - link "+ Add Category" [ref=f19e68] [cursor=pointer]:
+                - /url: "#categories"
+          - generic [ref=f19e69]:
+            - generic [ref=f19e70]:
+              - generic [ref=f19e71]: Total Categories
+              - generic [ref=f19e72]: "4"
+              - generic [ref=f19e73]: ● All Active
+            - generic [ref=f19e74]:
+              - generic [ref=f19e75]: Total Products
+              - generic [ref=f19e76]: "14"
+              - generic [ref=f19e77]: 13 Published · 0 Draft
+            - generic [ref=f19e78]:
+              - generic [ref=f19e79]: Ready to Order
+              - generic [ref=f19e80]: "12"
+              - generic [ref=f19e81]: Instant WhatsApp orders
+            - generic [ref=f19e82]:
+              - generic [ref=f19e83]: Out of Stock / Paused
+              - generic [ref=f19e84]: "2"
+              - generic [ref=f19e85]: Needs inventory refresh
+          - generic [ref=f19e86]:
+            - heading "Quick Workflows" [level=3] [ref=f19e87]
+            - generic [ref=f19e88]:
+              - link "⚡ Availability Matrix One-click stock toggle" [ref=f19e89] [cursor=pointer]:
+                - /url: "#matrix"
+                - generic [ref=f19e90]: ⚡
+                - generic [ref=f19e91]:
+                  - strong [ref=f19e92]: Availability Matrix
+                  - text: One-click stock toggle
+              - link "🖼️ Image Optimizer 512x512 WebP converter" [ref=f19e93] [cursor=pointer]:
+                - /url: "#cdn"
+                - generic [ref=f19e94]: 🖼️
+                - generic [ref=f19e95]:
+                  - strong [ref=f19e96]: Image Optimizer
+                  - text: 512x512 WebP converter
+              - link "⚙️ Site Configuration WhatsApp & Hero Banner" [ref=f19e97] [cursor=pointer]:
+                - /url: "#config"
+                - generic [ref=f19e98]: ⚙️
+                - generic [ref=f19e99]:
+                  - strong [ref=f19e100]: Site Configuration
+                  - text: WhatsApp & Hero Banner
+              - link "📝 Story & Philosophy CMS Brand narrative pages" [ref=f19e101] [cursor=pointer]:
+                - /url: "#content"
+                - generic [ref=f19e102]: 📝
+                - generic [ref=f19e103]:
+                  - strong [ref=f19e104]: Story & Philosophy CMS
+                  - text: Brand narrative pages
+          - generic [ref=f19e105]:
+            - generic [ref=f19e106]:
+              - heading "Recent Menu Items" [level=3] [ref=f19e107]
+              - link "View All Products →" [ref=f19e108] [cursor=pointer]:
+                - /url: "#products"
+            - table [ref=f19e110]:
+              - rowgroup [ref=f19e111]:
+                - row [ref=f19e112]:
+                  - columnheader "Product Name" [ref=f19e113]
+                  - columnheader "Category" [ref=f19e114]
+                  - columnheader "Starting Price" [ref=f19e115]
+                  - columnheader "Availability" [ref=f19e116]
+                  - columnheader "Status" [ref=f19e117]
+              - rowgroup [ref=f19e118]:
+                - row [ref=f19e119]:
+                  - cell "Moong Sprout Bowl" [ref=f19e120]
+                  - cell "Sprouts" [ref=f19e121]
+                  - cell "₹60" [ref=f19e122]
+                  - cell "available" [ref=f19e123]
+                  - cell "published" [ref=f19e125]
+                - row [ref=f19e127]:
+                  - cell "Mixed Sprout Chaat" [ref=f19e128]
+                  - cell "Sprouts" [ref=f19e129]
+                  - cell "₹80" [ref=f19e130]
+                  - cell "available" [ref=f19e131]
+                  - cell "published" [ref=f19e133]
+                - row [ref=f19e135]:
+                  - cell "Sprouted Moth Salad" [ref=f19e136]
+                  - cell "Sprouts" [ref=f19e137]
+                  - cell "₹70" [ref=f19e138]
+                  - cell "available" [ref=f19e139]
+                  - cell "published" [ref=f19e141]
+                - row [ref=f19e143]:
+                  - cell "Paneer Sprout Power Bowl" [ref=f19e144]
+                  - cell "Sprouts" [ref=f19e145]
+                  - cell "₹120" [ref=f19e146]
+                  - cell "temporarily_unavailable" [ref=f19e147]
+                  - cell "published" [ref=f19e149]
+                - row [ref=f19e151]:
+                  - cell "Garden Fresh Salad" [ref=f19e152]
+                  - cell "Salads" [ref=f19e153]
+                  - cell "₹90" [ref=f19e154]
+                  - cell "available" [ref=f19e155]
+                  - cell "published" [ref=f19e157]
+  - generic [ref=f19e159]: Logged in via Dev Bypass Mode

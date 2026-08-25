@@ -1,0 +1,251 @@
+- generic [ref=f7e1]:
+  - generic [ref=f7e3]:
+    - banner [ref=f7e4]:
+      - generic [ref=f7e5]:
+        - link [ref=f7e7] [cursor=pointer]:
+          - /url: "#"
+          - heading "ॐ OMKARA" [level=1] [ref=f7e8]:
+            - generic [ref=f7e9]: ॐ
+            - text: OMKARA
+        - navigation "Desktop Navigation" [ref=f7e10]:
+          - generic [ref=f7e11]:
+            - link "Menu" [ref=f7e12] [cursor=pointer]:
+              - /url: "#category-nav-container"
+            - button "🛒 Cart 2" [ref=f7e281] [cursor=pointer]:
+              - generic [ref=f7e14]: 🛒 Cart
+              - generic [ref=f7e282]: "2"
+    - generic [ref=f7e17]:
+      - heading "Rooted in the Heritage of Bikaner" [level=2] [ref=f7e18]
+      - paragraph [ref=f7e19]: SEHAT BHI. SWAAD BHI.
+    - main [ref=f7e20]:
+      - generic [ref=f7e21]:
+        - textbox "Search products" [ref=f7e24]:
+          - /placeholder: Aaj kya khayenge?
+        - navigation "Category Navigation" [ref=f7e26]:
+          - tablist [ref=f7e27]:
+            - tab "Sprouts" [selected] [ref=f7e28] [cursor=pointer]
+            - tab "Salads" [ref=f7e29] [cursor=pointer]
+            - tab "Smoothies" [ref=f7e30] [cursor=pointer]
+            - tab "Healthy Snacks" [ref=f7e31] [cursor=pointer]
+        - generic [ref=f7e32]:
+          - generic [ref=f7e33]:
+            - generic [ref=f7e34]:
+              - heading "Sprouts" [level=2] [ref=f7e35]
+              - generic [ref=f7e36]: 4 items
+            - paragraph [ref=f7e37]: Farm-fresh sprouted legumes & grains, packed with living nutrition.
+            - generic [ref=f7e38]:
+              - button "Moong Sprout Bowl, starting from ₹60" [ref=f7e39] [cursor=pointer]:
+                - generic [ref=f7e40]:
+                  - heading "Moong Sprout Bowl" [level=3] [ref=f7e41]
+                  - paragraph [ref=f7e42]: Classic sprouted moong with chaat masala kick
+                  - generic [ref=f7e43]: From₹60
+                  - generic [ref=f7e45]:
+                    - generic [ref=f7e46]: bestseller
+                    - generic [ref=f7e47]: protein
+              - button "Mixed Sprout Chaat, ₹80" [ref=f7e48] [cursor=pointer]:
+                - generic [ref=f7e49]:
+                  - heading "Mixed Sprout Chaat" [level=3] [ref=f7e50]
+                  - paragraph [ref=f7e51]: Triple-sprout chaat with pomegranate & mint
+                  - generic [ref=f7e52]: ₹80
+                  - generic [ref=f7e54]:
+                    - generic [ref=f7e55]: protein
+                    - generic [ref=f7e56]: vegan
+              - button "Sprouted Moth Salad, ₹70" [ref=f7e57] [cursor=pointer]:
+                - generic [ref=f7e60]:
+                  - heading "Sprouted Moth Salad" [level=3] [ref=f7e61]
+                  - paragraph [ref=f7e62]: Bikaneri-style moth with mustard oil
+                  - generic [ref=f7e63]: ₹70
+                  - generic [ref=f7e65]:
+                    - generic [ref=f7e66]: regional
+                    - generic [ref=f7e67]: protein
+              - button "Paneer Sprout Power Bowl, starting from ₹120" [ref=f7e68] [cursor=pointer]:
+                - generic [ref=f7e72]:
+                  - heading "Paneer Sprout Power Bowl" [level=3] [ref=f7e73]
+                  - paragraph [ref=f7e74]: Protein-loaded sprouts with paneer & yogurt drizzle
+                  - generic [ref=f7e75]: From₹120
+                  - generic [ref=f7e77]:
+                    - generic [ref=f7e78]: premium
+                    - generic [ref=f7e79]: protein
+          - generic [ref=f7e80]:
+            - generic [ref=f7e81]:
+              - heading "Salads" [level=2] [ref=f7e82]
+              - generic [ref=f7e83]: 3 items
+            - paragraph [ref=f7e84]: Crisp, vibrant salad bowls dressed with signature Bikaneri flavors.
+            - generic [ref=f7e85]:
+              - button "Garden Fresh Salad, starting from ₹90" [ref=f7e86] [cursor=pointer]:
+                - generic [ref=f7e89]:
+                  - heading "Garden Fresh Salad" [level=3] [ref=f7e90]
+                  - paragraph [ref=f7e91]: Seasonal veggies with lemon-herb vinaigrette
+                  - generic [ref=f7e92]: From₹90
+                  - generic [ref=f7e94]:
+                    - generic [ref=f7e95]: light
+                    - generic [ref=f7e96]: vegan
+              - button "Quinoa Tikki Salad, ₹130" [ref=f7e97] [cursor=pointer]:
+                - generic [ref=f7e100]:
+                  - heading "Quinoa Tikki Salad" [level=3] [ref=f7e101]
+                  - paragraph [ref=f7e102]: Fusion bowl with quinoa tikkis & tamarind dressing
+                  - generic [ref=f7e103]: ₹130
+                  - generic [ref=f7e105]:
+                    - generic [ref=f7e106]: fusion
+                    - generic [ref=f7e107]: bestseller
+              - button "Bikaneri Kachumber, ₹50" [ref=f7e108] [cursor=pointer]:
+                - generic [ref=f7e111]:
+                  - heading "Bikaneri Kachumber" [level=3] [ref=f7e112]
+                  - paragraph [ref=f7e113]: Traditional Rajasthani diced vegetable salad
+                  - generic [ref=f7e114]: ₹50
+                  - generic [ref=f7e116]:
+                    - generic [ref=f7e117]: regional
+                    - generic [ref=f7e118]: vegan
+          - generic [ref=f7e119]:
+            - generic [ref=f7e120]:
+              - heading "Smoothies" [level=2] [ref=f7e121]
+              - generic [ref=f7e122]: 3 items
+            - paragraph [ref=f7e123]: Thick, creamy blends of seasonal fruits, seeds & natural sweeteners.
+            - generic [ref=f7e124]:
+              - button "Mango Lassi Smoothie, starting from ₹80" [ref=f7e125] [cursor=pointer]:
+                - generic [ref=f7e128]:
+                  - heading "Mango Lassi Smoothie" [level=3] [ref=f7e129]
+                  - paragraph [ref=f7e130]: Classic mango lassi with saffron & cardamom
+                  - generic [ref=f7e131]: From₹80
+                  - generic [ref=f7e133]:
+                    - generic [ref=f7e134]: bestseller
+                    - generic [ref=f7e135]: seasonal
+              - button "Green Detox, starting from ₹90" [ref=f7e136] [cursor=pointer]:
+                - generic [ref=f7e139]:
+                  - heading "Green Detox" [level=3] [ref=f7e140]
+                  - paragraph [ref=f7e141]: Spinach-banana-apple green blend
+                  - generic [ref=f7e142]: From₹90
+                  - generic [ref=f7e144]:
+                    - generic [ref=f7e145]: detox
+                    - generic [ref=f7e146]: vegan
+              - button "Dates & Almond Shake, starting from ₹110" [ref=f7e147] [cursor=pointer]:
+                - generic [ref=f7e150]:
+                  - heading "Dates & Almond Shake" [level=3] [ref=f7e151]
+                  - paragraph [ref=f7e152]: Natural sweetness from dates & almonds
+                  - generic [ref=f7e153]: From₹110
+                  - generic [ref=f7e155]:
+                    - generic [ref=f7e156]: premium
+                    - generic [ref=f7e157]: no-sugar
+          - generic [ref=f7e158]:
+            - generic [ref=f7e159]:
+              - heading "Healthy Snacks" [level=2] [ref=f7e160]
+              - generic [ref=f7e161]: 3 items
+            - paragraph [ref=f7e162]: Guilt-free munching — roasted, baked, never fried.
+            - generic [ref=f7e163]:
+              - button "Roasted Makhana, starting from ₹80" [ref=f7e164] [cursor=pointer]:
+                - generic [ref=f7e167]:
+                  - heading "Roasted Makhana" [level=3] [ref=f7e168]
+                  - paragraph [ref=f7e169]: Ghee-roasted fox nuts with turmeric
+                  - generic [ref=f7e170]: From₹80
+                  - generic [ref=f7e172]:
+                    - generic [ref=f7e173]: bestseller
+                    - generic [ref=f7e174]: gluten-free
+              - button "Seeds & Trail Mix, starting from ₹120" [ref=f7e175] [cursor=pointer]:
+                - generic [ref=f7e178]:
+                  - heading "Seeds & Trail Mix" [level=3] [ref=f7e179]
+                  - paragraph [ref=f7e180]: Curated seeds & dried fruit mix
+                  - generic [ref=f7e181]: From₹120
+                  - generic [ref=f7e183]:
+                    - generic [ref=f7e184]: protein
+                    - generic [ref=f7e185]: vegan
+              - button "Baked Beetroot Chips, ₹90" [ref=f7e186] [cursor=pointer]:
+                - generic [ref=f7e189]:
+                  - heading "Baked Beetroot Chips" [level=3] [ref=f7e190]
+                  - paragraph [ref=f7e191]: Oven-baked beet chips with pink salt
+                  - generic [ref=f7e192]: ₹90
+                  - generic [ref=f7e194]:
+                    - generic [ref=f7e195]: baked
+                    - generic [ref=f7e196]: vegan
+    - contentinfo [ref=f7e197]:
+      - generic [ref=f7e198]:
+        - generic [ref=f7e199]:
+          - generic [ref=f7e200]:
+            - heading "OMKARA" [level=3] [ref=f7e201]
+            - paragraph [ref=f7e202]: Premium health foods from Bikaner. Handcrafted sprouts, smoothies, salads & healthy snacks.
+          - generic [ref=f7e203]:
+            - heading "Company" [level=4] [ref=f7e204]
+            - link "About Us" [ref=f7e205] [cursor=pointer]:
+              - /url: "#"
+            - link "Our Story" [ref=f7e206] [cursor=pointer]:
+              - /url: "#"
+            - link "Careers" [ref=f7e207] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=f7e208]:
+            - heading "Support" [level=4] [ref=f7e209]
+            - link "Contact Us" [ref=f7e210] [cursor=pointer]:
+              - /url: "#"
+            - link "FAQ" [ref=f7e211] [cursor=pointer]:
+              - /url: "#"
+            - link "Shipping & Returns" [ref=f7e212] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=f7e213]:
+            - heading "Connect" [level=4] [ref=f7e214]
+            - link "Instagram" [ref=f7e215] [cursor=pointer]:
+              - /url: "#"
+            - link "Facebook" [ref=f7e216] [cursor=pointer]:
+              - /url: "#"
+            - link "WhatsApp" [ref=f7e217] [cursor=pointer]:
+              - /url: "#"
+        - generic [ref=f7e218]:
+          - paragraph [ref=f7e219]: © 2026 OMKARA. All rights reserved.
+          - generic [ref=f7e220]:
+            - link "Privacy Policy" [ref=f7e221] [cursor=pointer]:
+              - /url: "#"
+            - link "Terms of Service" [ref=f7e222] [cursor=pointer]:
+              - /url: "#"
+  - dialog [ref=f7e224]:
+    - button "Close dialog" [ref=f7e225] [cursor=pointer]
+    - generic [ref=f7e230]:
+      - heading "Moong Sprout Bowl" [level=2] [ref=f7e231]
+      - paragraph [ref=f7e232]: Freshly sprouted moong dal tossed with diced onions, tomatoes, green chillies, lemon juice, and a dusting of chaat masala. Light, protein-packed, and perfect for any time of day.
+      - generic [ref=f7e233]:
+        - heading "Key Ingredients" [level=5] [ref=f7e234]
+        - generic [ref=f7e235]:
+          - generic [ref=f7e236]: Sprouted Moong Dal
+          - generic [ref=f7e237]: Onion
+          - generic [ref=f7e238]: Tomato
+          - generic [ref=f7e239]: Lemon
+          - generic [ref=f7e240]: Green Chilli
+          - generic [ref=f7e241]: Chaat Masala
+          - generic [ref=f7e242]: Coriander
+      - generic [ref=f7e243]:
+        - heading "Select Serving Size" [level=4] [ref=f7e244]
+        - radiogroup "Serving Size" [ref=f7e245]:
+          - radio "Regular ₹60" [ref=f7e246] [cursor=pointer]:
+            - generic [ref=f7e247]: Regular
+            - generic [ref=f7e248]: ₹60
+          - radio "Family ₹150" [checked] [ref=f7e249] [cursor=pointer]:
+            - generic [ref=f7e250]: Family
+            - generic [ref=f7e251]: ₹150
+      - generic [ref=f7e252]:
+        - heading "Add Extra Nourishment (Optional)" [level=4] [ref=f7e253]
+        - generic [ref=f7e254]:
+          - generic [ref=f7e255] [cursor=pointer]:
+            - generic [ref=f7e256]:
+              - checkbox "Extra Lemon +₹10" [checked] [ref=f7e257]
+              - generic [ref=f7e258]: Extra Lemon
+            - generic [ref=f7e259]: +₹10
+          - generic [ref=f7e260] [cursor=pointer]:
+            - generic [ref=f7e261]:
+              - checkbox "Roasted Peanuts +₹20" [checked] [ref=f7e262]
+              - generic [ref=f7e263]: Roasted Peanuts
+            - generic [ref=f7e264]: +₹20
+      - generic [ref=f7e265]:
+        - heading "Special Instructions" [level=4] [ref=f7e266]
+        - generic [ref=f7e267]:
+          - textbox "Special instructions" [ref=f7e268]:
+            - /placeholder: Any special instructions?
+            - text: Extra spicy with fresh mint please!
+          - generic [ref=f7e269]: 35/200
+      - generic [ref=f7e270]:
+        - heading "Quantity" [level=4] [ref=f7e271]
+        - group "Quantity" [ref=f7e272]:
+          - button "Decrease quantity" [ref=f7e273] [cursor=pointer]: −
+          - generic [ref=f7e274]: "2"
+          - button "Increase quantity" [ref=f7e275] [cursor=pointer]: +
+    - generic [ref=f7e276]:
+      - generic [ref=f7e277]:
+        - generic [ref=f7e278]: Total
+        - generic [ref=f7e279]: ₹360
+      - button "Add to Cart" [active] [ref=f7e280] [cursor=pointer]
+  - generic: Added Moong Sprout Bowl to cart 🌿

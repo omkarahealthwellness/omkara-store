@@ -1,0 +1,346 @@
+- generic [active] [ref=f19e1]:
+  - generic [ref=f19e619]:
+    - complementary [ref=f19e620]:
+      - generic [ref=f19e621]:
+        - heading "ॐ OMKARA" [level=2] [ref=f19e622]:
+          - generic [ref=f19e623]: ॐ
+          - text: OMKARA
+        - generic [ref=f19e624]: ADMIN
+      - navigation [ref=f19e625]:
+        - link "📊 Dashboard" [ref=f19e626] [cursor=pointer]:
+          - /url: "#dashboard"
+          - generic [ref=f19e627]: 📊
+          - generic [ref=f19e628]: Dashboard
+        - link "🥗 Products" [ref=f19e629] [cursor=pointer]:
+          - /url: "#products"
+          - generic [ref=f19e630]: 🥗
+          - generic [ref=f19e631]: Products
+        - link "📁 Categories" [ref=f19e632] [cursor=pointer]:
+          - /url: "#categories"
+          - generic [ref=f19e633]: 📁
+          - generic [ref=f19e634]: Categories
+        - link "⚡ Availability Matrix" [ref=f19e635] [cursor=pointer]:
+          - /url: "#matrix"
+          - generic [ref=f19e636]: ⚡
+          - generic [ref=f19e637]: Availability Matrix
+        - link "⚙️ Site Config" [ref=f19e638] [cursor=pointer]:
+          - /url: "#config"
+          - generic [ref=f19e639]: ⚙️
+          - generic [ref=f19e640]: Site Config
+        - link "📝 Content Pages" [ref=f19e641] [cursor=pointer]:
+          - /url: "#content"
+          - generic [ref=f19e642]: 📝
+          - generic [ref=f19e643]: Content Pages
+        - link "🖼️ CDN & Images" [ref=f19e644] [cursor=pointer]:
+          - /url: "#cdn"
+          - generic [ref=f19e645]: 🖼️
+          - generic [ref=f19e646]: CDN & Images
+      - link "↗ Open Storefront" [ref=f19e648] [cursor=pointer]:
+        - /url: http://localhost:5173
+    - generic [ref=f19e650]:
+      - banner [ref=f19e651]:
+        - heading "Control Center" [level=3] [ref=f19e653]
+        - generic [ref=f19e654]:
+          - generic [ref=f19e655]: admin@omkara.com (Dev Mode)
+          - button "Logout" [ref=f19e658] [cursor=pointer]
+      - main [ref=f19e660]:
+        - generic [ref=f19e661]:
+          - generic [ref=f19e662]:
+            - generic [ref=f19e663]:
+              - heading "Live Availability Matrix" [level=2] [ref=f19e664]
+              - paragraph [ref=f19e665]: Instantly toggle dish availability for morning prep or sudden sold-out items.
+            - button "💾 Save Availability Changes" [ref=f19e666] [cursor=pointer]
+          - table [ref=f19e668]:
+            - rowgroup [ref=f19e669]:
+              - row [ref=f19e670]:
+                - columnheader "Product" [ref=f19e671]
+                - columnheader "Category" [ref=f19e672]
+                - columnheader "Current Availability State" [ref=f19e673]
+                - columnheader "Instant Action" [ref=f19e674]
+            - rowgroup [ref=f19e675]:
+              - row [ref=f19e676]:
+                - cell "Moong Sprout Bowl" [ref=f19e677]
+                - cell "Sprouts" [ref=f19e678]
+                - cell "✅ Available (Ready)" [ref=f19e680]:
+                  - combobox [ref=f19e681]:
+                    - option "✅ Available (Ready)" [selected]
+                    - option "🥗 Freshly Prepared"
+                    - option "⏳ Limited Quantity"
+                    - option "⚠️ Low Stock"
+                    - option "🍂 Seasonal Special"
+                    - option "❌ Out of Stock"
+                    - option "🚀 Coming Soon"
+                    - option "⏸ Temporarily Paused"
+                - cell [ref=f19e682]:
+                  - button "Mark Sold Out" [ref=f19e683] [cursor=pointer]
+              - row [ref=f19e684]:
+                - cell "Mixed Sprout Chaat" [ref=f19e685]
+                - cell "Sprouts" [ref=f19e686]
+                - cell "✅ Available (Ready)" [ref=f19e688]:
+                  - combobox [ref=f19e689]:
+                    - option "✅ Available (Ready)" [selected]
+                    - option "🥗 Freshly Prepared"
+                    - option "⏳ Limited Quantity"
+                    - option "⚠️ Low Stock"
+                    - option "🍂 Seasonal Special"
+                    - option "❌ Out of Stock"
+                    - option "🚀 Coming Soon"
+                    - option "⏸ Temporarily Paused"
+                - cell [ref=f19e690]:
+                  - button "Mark Sold Out" [ref=f19e691] [cursor=pointer]
+              - row [ref=f19e692]:
+                - cell "Sprouted Moth Salad" [ref=f19e693]
+                - cell "Sprouts" [ref=f19e694]
+                - cell "✅ Available (Ready)" [ref=f19e696]:
+                  - combobox [ref=f19e697]:
+                    - option "✅ Available (Ready)" [selected]
+                    - option "🥗 Freshly Prepared"
+                    - option "⏳ Limited Quantity"
+                    - option "⚠️ Low Stock"
+                    - option "🍂 Seasonal Special"
+                    - option "❌ Out of Stock"
+                    - option "🚀 Coming Soon"
+                    - option "⏸ Temporarily Paused"
+                - cell [ref=f19e698]:
+                  - button "Mark Sold Out" [ref=f19e699] [cursor=pointer]
+              - row [ref=f19e700]:
+                - cell "Paneer Sprout Power Bowl" [ref=f19e701]
+                - cell "Sprouts" [ref=f19e702]
+                - cell "⏸ Temporarily Paused" [ref=f19e704]:
+                  - combobox [ref=f19e705]:
+                    - option "✅ Available (Ready)"
+                    - option "🥗 Freshly Prepared"
+                    - option "⏳ Limited Quantity"
+                    - option "⚠️ Low Stock"
+                    - option "🍂 Seasonal Special"
+                    - option "❌ Out of Stock"
+                    - option "🚀 Coming Soon"
+                    - option "⏸ Temporarily Paused" [selected]
+                - cell [ref=f19e706]:
+                  - button "Mark In Stock" [ref=f19e707] [cursor=pointer]
+              - row [ref=f19e708]:
+                - cell "Garden Fresh Salad" [ref=f19e709]
+                - cell "Salads" [ref=f19e710]
+                - cell "✅ Available (Ready)" [ref=f19e712]:
+                  - combobox [ref=f19e713]:
+                    - option "✅ Available (Ready)" [selected]
+                    - option "🥗 Freshly Prepared"
+                    - option "⏳ Limited Quantity"
+                    - option "⚠️ Low Stock"
+                    - option "🍂 Seasonal Special"
+                    - option "❌ Out of Stock"
+                    - option "🚀 Coming Soon"
+                    - option "⏸ Temporarily Paused"
+                - cell [ref=f19e714]:
+                  - button "Mark Sold Out" [ref=f19e715] [cursor=pointer]
+              - row [ref=f19e716]:
+                - cell "Quinoa Tikki Salad" [ref=f19e717]
+                - cell "Salads" [ref=f19e718]
+                - cell "✅ Available (Ready)" [ref=f19e720]:
+                  - combobox [ref=f19e721]:
+                    - option "✅ Available (Ready)" [selected]
+                    - option "🥗 Freshly Prepared"
+                    - option "⏳ Limited Quantity"
+                    - option "⚠️ Low Stock"
+                    - option "🍂 Seasonal Special"
+                    - option "❌ Out of Stock"
+                    - option "🚀 Coming Soon"
+                    - option "⏸ Temporarily Paused"
+                - cell [ref=f19e722]:
+                  - button "Mark Sold Out" [ref=f19e723] [cursor=pointer]
+              - row [ref=f19e724]:
+                - cell "Bikaneri Kachumber" [ref=f19e725]
+                - cell "Salads" [ref=f19e726]
+                - cell "✅ Available (Ready)" [ref=f19e728]:
+                  - combobox [ref=f19e729]:
+                    - option "✅ Available (Ready)" [selected]
+                    - option "🥗 Freshly Prepared"
+                    - option "⏳ Limited Quantity"
+                    - option "⚠️ Low Stock"
+                    - option "🍂 Seasonal Special"
+                    - option "❌ Out of Stock"
+                    - option "🚀 Coming Soon"
+                    - option "⏸ Temporarily Paused"
+                - cell [ref=f19e730]:
+                  - button "Mark Sold Out" [ref=f19e731] [cursor=pointer]
+              - row [ref=f19e732]:
+                - cell "Mango Lassi Smoothie" [ref=f19e733]
+                - cell "Smoothies" [ref=f19e734]
+                - cell "✅ Available (Ready)" [ref=f19e736]:
+                  - combobox [ref=f19e737]:
+                    - option "✅ Available (Ready)" [selected]
+                    - option "🥗 Freshly Prepared"
+                    - option "⏳ Limited Quantity"
+                    - option "⚠️ Low Stock"
+                    - option "🍂 Seasonal Special"
+                    - option "❌ Out of Stock"
+                    - option "🚀 Coming Soon"
+                    - option "⏸ Temporarily Paused"
+                - cell [ref=f19e738]:
+                  - button "Mark Sold Out" [ref=f19e739] [cursor=pointer]
+              - row [ref=f19e740]:
+                - cell "Green Detox" [ref=f19e741]
+                - cell "Smoothies" [ref=f19e742]
+                - cell "✅ Available (Ready)" [ref=f19e744]:
+                  - combobox [ref=f19e745]:
+                    - option "✅ Available (Ready)" [selected]
+                    - option "🥗 Freshly Prepared"
+                    - option "⏳ Limited Quantity"
+                    - option "⚠️ Low Stock"
+                    - option "🍂 Seasonal Special"
+                    - option "❌ Out of Stock"
+                    - option "🚀 Coming Soon"
+                    - option "⏸ Temporarily Paused"
+                - cell [ref=f19e746]:
+                  - button "Mark Sold Out" [ref=f19e747] [cursor=pointer]
+              - row [ref=f19e748]:
+                - cell "Dates & Almond Shake" [ref=f19e749]
+                - cell "Smoothies" [ref=f19e750]
+                - cell "✅ Available (Ready)" [ref=f19e752]:
+                  - combobox [ref=f19e753]:
+                    - option "✅ Available (Ready)" [selected]
+                    - option "🥗 Freshly Prepared"
+                    - option "⏳ Limited Quantity"
+                    - option "⚠️ Low Stock"
+                    - option "🍂 Seasonal Special"
+                    - option "❌ Out of Stock"
+                    - option "🚀 Coming Soon"
+                    - option "⏸ Temporarily Paused"
+                - cell [ref=f19e754]:
+                  - button "Mark Sold Out" [ref=f19e755] [cursor=pointer]
+              - row [ref=f19e756]:
+                - cell "Berry Blast" [ref=f19e757]
+                - cell "Smoothies" [ref=f19e758]
+                - cell "❌ Out of Stock" [ref=f19e760]:
+                  - combobox [ref=f19e761]:
+                    - option "✅ Available (Ready)"
+                    - option "🥗 Freshly Prepared"
+                    - option "⏳ Limited Quantity"
+                    - option "⚠️ Low Stock"
+                    - option "🍂 Seasonal Special"
+                    - option "❌ Out of Stock" [selected]
+                    - option "🚀 Coming Soon"
+                    - option "⏸ Temporarily Paused"
+                - cell [ref=f19e762]:
+                  - button "Mark In Stock" [ref=f19e763] [cursor=pointer]
+              - row [ref=f19e764]:
+                - cell "Roasted Makhana" [ref=f19e765]
+                - cell "Healthy Snacks" [ref=f19e766]
+                - cell "✅ Available (Ready)" [ref=f19e768]:
+                  - combobox [ref=f19e769]:
+                    - option "✅ Available (Ready)" [selected]
+                    - option "🥗 Freshly Prepared"
+                    - option "⏳ Limited Quantity"
+                    - option "⚠️ Low Stock"
+                    - option "🍂 Seasonal Special"
+                    - option "❌ Out of Stock"
+                    - option "🚀 Coming Soon"
+                    - option "⏸ Temporarily Paused"
+                - cell [ref=f19e770]:
+                  - button "Mark Sold Out" [ref=f19e771] [cursor=pointer]
+              - row [ref=f19e772]:
+                - cell "Seeds & Trail Mix" [ref=f19e773]
+                - cell "Healthy Snacks" [ref=f19e774]
+                - cell "✅ Available (Ready)" [ref=f19e776]:
+                  - combobox [ref=f19e777]:
+                    - option "✅ Available (Ready)" [selected]
+                    - option "🥗 Freshly Prepared"
+                    - option "⏳ Limited Quantity"
+                    - option "⚠️ Low Stock"
+                    - option "🍂 Seasonal Special"
+                    - option "❌ Out of Stock"
+                    - option "🚀 Coming Soon"
+                    - option "⏸ Temporarily Paused"
+                - cell [ref=f19e778]:
+                  - button "Mark Sold Out" [ref=f19e779] [cursor=pointer]
+              - row [ref=f19e780]:
+                - cell "Baked Beetroot Chips" [ref=f19e781]
+                - cell "Healthy Snacks" [ref=f19e782]
+                - cell "✅ Available (Ready)" [ref=f19e784]:
+                  - combobox [ref=f19e785]:
+                    - option "✅ Available (Ready)" [selected]
+                    - option "🥗 Freshly Prepared"
+                    - option "⏳ Limited Quantity"
+                    - option "⚠️ Low Stock"
+                    - option "🍂 Seasonal Special"
+                    - option "❌ Out of Stock"
+                    - option "🚀 Coming Soon"
+                    - option "⏸ Temporarily Paused"
+                - cell [ref=f19e786]:
+                  - button "Mark Sold Out" [ref=f19e787] [cursor=pointer]
+  - generic:
+    - generic:
+      - generic:
+        - heading "Create New Product" [level=3]
+        - button "✕"
+      - generic:
+        - generic:
+          - generic:
+            - generic: Product Name *
+            - textbox "Product Name *":
+              - /placeholder: e.g. Moong Sprout Bowl
+          - generic:
+            - generic:
+              - generic: Category *
+              - combobox "Category *":
+                - option "Sprouts" [selected]
+                - option "Salads"
+                - option "Smoothies"
+                - option "Healthy Snacks"
+            - generic:
+              - generic: Availability State
+              - combobox "Availability State":
+                - option "Available (Orderable)" [selected]
+                - option "Freshly Prepared"
+                - option "Limited Quantity"
+                - option "Low Stock"
+                - option "Seasonal"
+                - option "Out of Stock"
+                - option "Coming Soon"
+                - option "Temporarily Unavailable"
+          - generic:
+            - generic: Short Tagline
+            - textbox "Short Tagline":
+              - /placeholder: Brief subtitle on card...
+          - generic:
+            - generic: Full Description
+            - textbox "Full Description":
+              - /placeholder: Full dish ingredients and story...
+          - generic:
+            - generic: Key Ingredients (comma-separated)
+            - textbox "Key Ingredients (comma-separated)":
+              - /placeholder: Sprouted Moong, Lemon, Green Chilli...
+          - generic:
+            - generic: Image URL
+            - textbox "Image URL":
+              - /placeholder: https://... /assets/...
+          - generic:
+            - generic: Serving Sizes & Pricing *
+            - generic:
+              - generic:
+                - generic:
+                  - textbox "Size label (e.g. Regular, 300ml)": Regular
+                  - spinbutton "Price (₹)": "60"
+                  - generic:
+                    - radio "Default" [checked]
+                    - text: Default
+                  - button "✕" [disabled]
+              - button "+ Add Serving Size / Variant"
+          - generic:
+            - generic: Custom Add-ons (Optional)
+            - generic:
+              - button "+ Add Optional Add-on"
+          - generic:
+            - generic:
+              - generic: Tags (comma-separated)
+              - textbox "Tags (comma-separated)":
+                - /placeholder: bestseller, protein, vegan
+            - generic:
+              - generic: Publish Status
+              - combobox "Publish Status":
+                - option "Published (Live in Menu)" [selected]
+                - option "Draft (Hidden)"
+                - option "Archived"
+      - generic:
+        - button "Cancel"
+        - button "Create Product"

@@ -1,0 +1,169 @@
+/* ============================================================
+   OMKARA — Typography System
+   ============================================================
+   Google Fonts: Playfair Display (editorial serif for headings)
+                 Inter (clean sans-serif for body)
+   ============================================================ */
+
+/* ── Font Face Declarations ──────────────────────────────────── */
+/* Using Google Fonts CSS API v2 — loaded in index.html <link> tag.
+   @import here as fallback if <link> fails. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+/* ── Heading Styles ──────────────────────────────────────────── */
+
+.heading-1 {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+}
+
+.heading-2 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+}
+
+.heading-3 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--color-text-primary);
+}
+
+.heading-4 {
+  font-family: var(--font-body);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--color-text-primary);
+}
+
+.heading-5 {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--color-text-primary);
+}
+
+/* ── Body Text ───────────────────────────────────────────────── */
+
+.body-lg {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-primary);
+}
+
+.body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+}
+
+.body-sm {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+}
+
+/* ── Labels & Captions ───────────────────────────────────────── */
+
+.label {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.caption {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-normal);
+  color: var(--color-text-tertiary);
+}
+
+/* ── Special Text Styles ─────────────────────────────────────── */
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.tagline {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-brand-accent);
+}
+
+.price {
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-primary);
+}
+
+.price-large {
+  font-family: var(--font-body);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-primary);
+}
+
+.hinglish {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+/* ── Ingredient Tag ──────────────────────────────────────────── */
+
+.ingredient-tag {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-tertiary);
+  color: var(--color-text-secondary);
+  display: inline-block;
+}
+
+/* ── Link Styles ─────────────────────────────────────────────── */
+
+.link {
+  color: var(--color-text-link);
+  font-weight: var(--weight-medium);
+  transition: color var(--duration-fast) var(--ease-out);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.link:hover {
+  color: var(--color-brand-accent);
+}

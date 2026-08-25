@@ -1,0 +1,151 @@
+- generic [active] [ref=f19e1]:
+  - generic [ref=f19e974]:
+    - complementary [ref=f19e975]:
+      - generic [ref=f19e976]:
+        - heading "ॐ OMKARA" [level=2] [ref=f19e977]:
+          - generic [ref=f19e978]: ॐ
+          - text: OMKARA
+        - generic [ref=f19e979]: ADMIN
+      - navigation [ref=f19e980]:
+        - link "📊 Dashboard" [ref=f19e981] [cursor=pointer]:
+          - /url: "#dashboard"
+          - generic [ref=f19e982]: 📊
+          - generic [ref=f19e983]: Dashboard
+        - link "🥗 Products" [ref=f19e984] [cursor=pointer]:
+          - /url: "#products"
+          - generic [ref=f19e985]: 🥗
+          - generic [ref=f19e986]: Products
+        - link "📁 Categories" [ref=f19e987] [cursor=pointer]:
+          - /url: "#categories"
+          - generic [ref=f19e988]: 📁
+          - generic [ref=f19e989]: Categories
+        - link "⚡ Availability Matrix" [ref=f19e990] [cursor=pointer]:
+          - /url: "#matrix"
+          - generic [ref=f19e991]: ⚡
+          - generic [ref=f19e992]: Availability Matrix
+        - link "⚙️ Site Config" [ref=f19e993] [cursor=pointer]:
+          - /url: "#config"
+          - generic [ref=f19e994]: ⚙️
+          - generic [ref=f19e995]: Site Config
+        - link "📝 Content Pages" [ref=f19e996] [cursor=pointer]:
+          - /url: "#content"
+          - generic [ref=f19e997]: 📝
+          - generic [ref=f19e998]: Content Pages
+        - link "🖼️ CDN & Images" [ref=f19e999] [cursor=pointer]:
+          - /url: "#cdn"
+          - generic [ref=f19e1000]: 🖼️
+          - generic [ref=f19e1001]: CDN & Images
+      - link "↗ Open Storefront" [ref=f19e1003] [cursor=pointer]:
+        - /url: http://localhost:5173
+    - generic [ref=f19e1005]:
+      - banner [ref=f19e1006]:
+        - heading "Control Center" [level=3] [ref=f19e1008]
+        - generic [ref=f19e1009]:
+          - generic [ref=f19e1010]: admin@omkara.com (Dev Mode)
+          - button "Logout" [ref=f19e1013] [cursor=pointer]
+      - main [ref=f19e1015]:
+        - generic [ref=f19e1016]:
+          - generic [ref=f19e1017]:
+            - heading "CDN & Image Optimizer" [level=2] [ref=f19e1018]
+            - paragraph [ref=f19e1019]: Automatically converts raw food photography into ultra-fast 512×512 WebP assets with 0 byte server overhead.
+          - generic [ref=f19e1020]:
+            - generic [ref=f19e1021]:
+              - heading "Select Food Image" [level=3] [ref=f19e1022]
+              - generic [ref=f19e1023] [cursor=pointer]:
+                - generic [ref=f19e1024]: 📸
+                - strong [ref=f19e1025]: Drag & Drop photo here
+                - text: or click to browse from device (JPG, PNG, WebP)
+              - generic [ref=f19e1026]:
+                - text: Target Filename (slug)
+                - textbox "Target Filename (slug)" [ref=f19e1027]:
+                  - /placeholder: e.g. moong-sprout-bowl
+                  - text: dish-photo
+                - generic [ref=f19e1028]:
+                  - text: Saved as
+                  - code [ref=f19e1029]: dish-photo.webp
+            - generic [ref=f19e1030]:
+              - heading "512×512 WebP Preview" [level=3] [ref=f19e1031]
+              - generic [ref=f19e1033]:
+                - paragraph [ref=f19e1034]: No image loaded yet.
+                - paragraph [ref=f19e1035]: Processed 512×512 WebP will appear here.
+              - generic [ref=f19e1036]:
+                - text: jsDelivr CDN Link
+                - generic [ref=f19e1037]:
+                  - textbox [ref=f19e1038]: https://cdn.jsdelivr.net/gh/user/omkara-cdn/products/dish-photo.webp
+                  - button "Copy" [ref=f19e1039] [cursor=pointer]
+  - generic:
+    - generic:
+      - generic:
+        - heading "Create New Product" [level=3]
+        - button "✕"
+      - generic:
+        - generic:
+          - generic:
+            - generic: Product Name *
+            - textbox "Product Name *":
+              - /placeholder: e.g. Moong Sprout Bowl
+          - generic:
+            - generic:
+              - generic: Category *
+              - combobox "Category *":
+                - option "Sprouts" [selected]
+                - option "Salads"
+                - option "Smoothies"
+                - option "Healthy Snacks"
+            - generic:
+              - generic: Availability State
+              - combobox "Availability State":
+                - option "Available (Orderable)" [selected]
+                - option "Freshly Prepared"
+                - option "Limited Quantity"
+                - option "Low Stock"
+                - option "Seasonal"
+                - option "Out of Stock"
+                - option "Coming Soon"
+                - option "Temporarily Unavailable"
+          - generic:
+            - generic: Short Tagline
+            - textbox "Short Tagline":
+              - /placeholder: Brief subtitle on card...
+          - generic:
+            - generic: Full Description
+            - textbox "Full Description":
+              - /placeholder: Full dish ingredients and story...
+          - generic:
+            - generic: Key Ingredients (comma-separated)
+            - textbox "Key Ingredients (comma-separated)":
+              - /placeholder: Sprouted Moong, Lemon, Green Chilli...
+          - generic:
+            - generic: Image URL
+            - textbox "Image URL":
+              - /placeholder: https://... /assets/...
+          - generic:
+            - generic: Serving Sizes & Pricing *
+            - generic:
+              - generic:
+                - generic:
+                  - textbox "Size label (e.g. Regular, 300ml)": Regular
+                  - spinbutton "Price (₹)": "60"
+                  - generic:
+                    - radio "Default" [checked]
+                    - text: Default
+                  - button "✕" [disabled]
+              - button "+ Add Serving Size / Variant"
+          - generic:
+            - generic: Custom Add-ons (Optional)
+            - generic:
+              - button "+ Add Optional Add-on"
+          - generic:
+            - generic:
+              - generic: Tags (comma-separated)
+              - textbox "Tags (comma-separated)":
+                - /placeholder: bestseller, protein, vegan
+            - generic:
+              - generic: Publish Status
+              - combobox "Publish Status":
+                - option "Published (Live in Menu)" [selected]
+                - option "Draft (Hidden)"
+                - option "Archived"
+      - generic:
+        - button "Cancel"
+        - button "Create Product"
