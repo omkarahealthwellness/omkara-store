@@ -34,6 +34,35 @@ function renderAvailabilityBadge(state: AvailabilityState): string {
 }
 
 /**
+ * Render the top-left status badge (isNew takes priority over isFeatured).
+ */
+function renderStatusBadge(product: Product): string {
+  if (product.isNew) {
+    return '<span class="product-badge-new">New</span>';
+  }
+  if (product.isFeatured) {
+    return '<span class="product-badge-featured">★ Popular</span>';
+  }
+  return '';
+}
+
+/**
+ * Render unavailable overlay for non-orderable products (over image area).
+ */
+function renderUnavailableOverlay(state: AvailabilityState): string {
+  switch (state) {
+    case AvailabilityState.OutOfStock:
+      return '<div class="product-card-unavailable-overlay"><span class="unavailable-label sold-out">Sold Out</span></div>';
+    case AvailabilityState.ComingSoon:
+      return '<div class="product-card-unavailable-overlay"><span class="unavailable-label coming-soon">Coming Soon</span></div>';
+    case AvailabilityState.TemporarilyUnavailable:
+      return '<div class="product-card-unavailable-overlay"><span class="unavailable-label paused">Paused</span></div>';
+    default:
+      return '';
+  }
+}
+
+/**
  * Render an individual product card.
  */
 export function renderProductCard(product: Product, isHidden: boolean = false): string {
@@ -44,7 +73,9 @@ export function renderProductCard(product: Product, isHidden: boolean = false): 
 
   const hiddenClass = isHidden ? ' hidden-by-show-more' : '';
   const unavailableClass = !orderable ? ' unavailable' : '';
-  const badgeHtml = renderAvailabilityBadge(product.availability);
+  const availabilityBadgeHtml = renderAvailabilityBadge(product.availability);
+  const statusBadgeHtml = renderStatusBadge(product);
+  const overlayHtml = !orderable ? renderUnavailableOverlay(product.availability) : '';
 
   const tagsHtml = product.tags && product.tags.length > 0
     ? `
@@ -55,6 +86,8 @@ export function renderProductCard(product: Product, isHidden: boolean = false): 
     : '';
 
   const imageUrl = product.imageUrl || '';
+  const hasBadges = !!(availabilityBadgeHtml || statusBadgeHtml || overlayHtml);
+
   const imageHtml = imageUrl
     ? `
       <div class="product-card-img-wrapper">
@@ -65,10 +98,14 @@ export function renderProductCard(product: Product, isHidden: boolean = false): 
           loading="lazy"
           onerror="this.onerror=null; this.parentElement.style.display='none';"
         />
-        ${badgeHtml}
+        ${statusBadgeHtml}
+        ${availabilityBadgeHtml}
+        ${overlayHtml}
       </div>
     `
-    : badgeHtml ? `<div style="position: relative; height: var(--space-6);">${badgeHtml}</div>` : '';
+    : hasBadges
+      ? `<div class="product-card-badge-container">${statusBadgeHtml}${availabilityBadgeHtml}${overlayHtml}</div>`
+      : '';
 
   return `
     <article

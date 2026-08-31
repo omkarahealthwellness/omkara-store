@@ -19,13 +19,16 @@
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 40;
+  z-index: var(--z-header);
   background-color: var(--color-brand-primary);
   color: #FFFFF0;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border-subtle);
-  padding-block: var(--space-4);
+  height: var(--header-height);
+  padding-block: 0;
+  display: flex;
+  align-items: center;
   transition: box-shadow var(--transition-normal);
 }
 
@@ -37,6 +40,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .hero {
@@ -170,6 +174,17 @@
   z-index: var(--z-bottom-nav);
   display: flex;
   justify-content: center;
+  pointer-events: none;
+  transition: transform var(--duration-normal) var(--ease-out),
+              opacity var(--duration-normal) var(--ease-out),
+              visibility var(--duration-normal) var(--ease-out);
+  will-change: transform, opacity;
+}
+
+body.modal-open .bottom-nav-container {
+  transform: translateY(150%);
+  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
 
