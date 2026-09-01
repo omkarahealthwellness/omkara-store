@@ -6,6 +6,12 @@
 
 import type { Category } from 'shared/types/category';
 
+/** SVG chevron-left icon. */
+const CHEVRON_LEFT = `<svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>`;
+
+/** SVG chevron-right icon. */
+const CHEVRON_RIGHT = `<svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>`;
+
 /**
  * Render the horizontal category navigation bar.
  */
@@ -32,15 +38,31 @@ export function renderCategoryNav(categories: Category[]): string {
 
   return `
     <nav class="category-nav" id="category-nav" aria-label="Category Navigation">
-      <div class="category-nav-scroll" id="category-nav-scroll" role="tablist">
-        ${pills}
+      <div class="category-nav-wrapper">
+        <button
+          type="button"
+          class="category-nav-arrow left hidden"
+          id="category-nav-arrow-left"
+          aria-label="Scroll categories left"
+        >${CHEVRON_LEFT}</button>
+
+        <div class="category-nav-scroll" id="category-nav-scroll" role="tablist">
+          ${pills}
+        </div>
+
+        <button
+          type="button"
+          class="category-nav-arrow right"
+          id="category-nav-arrow-right"
+          aria-label="Scroll categories right"
+        >${CHEVRON_RIGHT}</button>
       </div>
     </nav>
   `;
 }
 
 /**
- * Setup category navigation click and scroll-spy handlers.
+ * Setup category navigation click, desktop scroll buttons, and scroll-spy handlers.
  */
 export function setupCategoryNav(): void {
   const navScroll = document.getElementById('category-nav-scroll');
@@ -49,7 +71,36 @@ export function setupCategoryNav(): void {
   const pills = navScroll.querySelectorAll<HTMLButtonElement>('.category-pill');
   if (pills.length === 0) return;
 
-  // 1. Click-to-scroll handler
+  const leftArrow = document.getElementById('category-nav-arrow-left') as HTMLButtonElement | null;
+  const rightArrow = document.getElementById('category-nav-arrow-right') as HTMLButtonElement | null;
+
+  // 1. Desktop Arrow Buttons Scroll & Edge Detection
+  function updateNavArrows(): void {
+    if (!leftArrow || !rightArrow || !navScroll) return;
+    const atStart = navScroll.scrollLeft <= 4;
+    const atEnd = navScroll.scrollLeft + navScroll.clientWidth >= navScroll.scrollWidth - 4;
+
+    leftArrow.classList.toggle('hidden', atStart);
+    rightArrow.classList.toggle('hidden', atEnd);
+  }
+
+  if (leftArrow) {
+    leftArrow.addEventListener('click', () => {
+      navScroll.scrollBy({ left: -260, behavior: 'smooth' });
+    });
+  }
+
+  if (rightArrow) {
+    rightArrow.addEventListener('click', () => {
+      navScroll.scrollBy({ left: 260, behavior: 'smooth' });
+    });
+  }
+
+  navScroll.addEventListener('scroll', updateNavArrows, { passive: true });
+  requestAnimationFrame(updateNavArrows);
+  window.addEventListener('resize', updateNavArrows, { passive: true });
+
+  // 2. Click-to-scroll handler
   pills.forEach((pill) => {
     pill.addEventListener('click', () => {
       const categoryId = pill.dataset.categoryId;
@@ -65,7 +116,7 @@ export function setupCategoryNav(): void {
     });
   });
 
-  // 2. Scroll-spy with IntersectionObserver
+  // 3. Scroll-spy with IntersectionObserver
   const sections = document.querySelectorAll<HTMLElement>('[data-category-section]');
   if (sections.length === 0) return;
 

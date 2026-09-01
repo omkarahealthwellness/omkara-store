@@ -27,9 +27,8 @@ export function renderCategorySection(category: MenuCategory): string {
     .map((product) => renderProductCard(product, false))
     .join('');
 
-  // Show "Show More" button when there are more than 6 items
-  // (roughly what fits in the visible slider area)
-  const showMoreBtn = category.products.length > 6
+  // Show "Show More" button for all categories with products
+  const showMoreBtn = category.products.length > 0
     ? `
       <button
         type="button"
@@ -126,8 +125,10 @@ export function setupCategorySections(onProductClick?: (productId: string) => vo
     }
 
     slider.addEventListener('scroll', updateArrows, { passive: true });
+    window.addEventListener('resize', updateArrows, { passive: true });
     // Initial check (after layout settles)
     requestAnimationFrame(updateArrows);
+    setTimeout(updateArrows, 150);
   });
 
   // 3. Show More Toggle (slider ↔ expanded grid)
