@@ -181,7 +181,7 @@ function wireActiveRouteHandlers(): void {
       break;
 
     case '#matrix':
-      setupAvailabilityMatrixView(products, handleBatchAvailability);
+      setupAvailabilityMatrixView(products, categories, handleBatchMatrixSave);
       break;
 
     case '#config':
@@ -282,19 +282,33 @@ async function handleDeleteCategory(id: string): Promise<void> {
   renderActiveRoute();
 }
 
-async function handleBatchAvailability(
-  updates: { productId: string; availability: AvailabilityState }[]
+async function handleBatchMatrixSave(
+  updates: { productId: string; availability?: AvailabilityState; sortOrder?: number }[]
 ): Promise<void> {
   for (const update of updates) {
+    const payload: Partial<Omit<Product, 'id'>> = {};
+    if (update.availability !== undefined) {
+      payload.availability = update.availability;
+    }
+    if (update.sortOrder !== undefined) {
+      payload.sortOrder = update.sortOrder;
+    }
+
     try {
-      await updateProduct(update.productId, { availability: update.availability });
+      await updateProduct(update.productId, payload);
     } catch (e) {
       console.warn('Local matrix update fallback:', e);
     }
+
     const prod = products.find((p) => p.id === update.productId);
-    if (prod) prod.availability = update.availability;
+    if (prod) {
+      if (update.availability !== undefined) prod.availability = update.availability;
+      if (update.sortOrder !== undefined) prod.sortOrder = update.sortOrder;
+    }
   }
-  showToast(`Updated ${updates.length} availability states!`);
+
+  products.sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+  showToast(`Updated ${updates.length} items (availability & ordering saved)!`);
   renderActiveRoute();
 }
 

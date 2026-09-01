@@ -67,11 +67,16 @@ export async function loadStorefrontMenu(): Promise<StorefrontMenu> {
         productsByCategory.set(product.categoryId, existing);
       }
 
-      // Build menu categories with products attached
-      const categories: MenuCategory[] = publishedCategories.map((cat) => ({
-        ...cat,
-        products: productsByCategory.get(cat.id) ?? [],
-      }));
+      // Build menu categories with products attached (strictly sorted by sortOrder)
+      const categories: MenuCategory[] = publishedCategories.map((cat) => {
+        const prods = (productsByCategory.get(cat.id) ?? []).sort(
+          (a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0)
+        );
+        return {
+          ...cat,
+          products: prods,
+        };
+      });
 
       return {
         config,
@@ -100,10 +105,15 @@ export async function loadStorefrontMenu(): Promise<StorefrontMenu> {
     productsByCategory.set(product.categoryId, existing);
   }
 
-  const categories: MenuCategory[] = publishedCategories.map((cat) => ({
-    ...cat,
-    products: productsByCategory.get(cat.id) ?? [],
-  }));
+  const categories: MenuCategory[] = publishedCategories.map((cat) => {
+    const prods = (productsByCategory.get(cat.id) ?? []).sort(
+      (a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0)
+    );
+    return {
+      ...cat,
+      products: prods,
+    };
+  });
 
   return {
     config: SEED_CONFIG,

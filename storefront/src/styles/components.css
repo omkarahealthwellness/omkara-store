@@ -168,13 +168,13 @@
 .product-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 
 @media (min-width: 768px) {
   .product-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: var(--space-6);
+    grid-template-columns: repeat(auto-fill, minmax(198px, 1fr));
+    gap: var(--space-4);
   }
 }
 
@@ -237,18 +237,13 @@
 }
 
 .product-card.unavailable {
-  opacity: 0.65;
-  filter: grayscale(0.4);
+  /* Keep product card clear and visible without blur or grayscale */
 }
 
 .product-card.unavailable:hover {
-  transform: none;
-  box-shadow: none;
-  border-color: var(--color-border-subtle);
-}
-
-.product-card.unavailable:hover .product-card-img {
-  transform: none;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border-default);
 }
 
 .product-card-img-wrapper {
@@ -274,12 +269,12 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: var(--space-3);
+  padding: var(--space-2) var(--space-3);
 }
 
 .product-card-name {
   font-family: var(--font-body);
-  font-size: var(--text-sm);
+  font-size: calc(var(--text-sm) + 4px);
   font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
   margin-bottom: var(--space-1);
@@ -305,15 +300,17 @@
   margin-top: auto;
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: var(--space-2);
+  text-align: right;
 }
 
 .product-card-price {
   font-family: var(--font-body);
-  font-size: var(--text-sm);
+  font-size: calc(var(--text-sm) + 2px);
   font-weight: var(--weight-bold);
-  color: var(--color-brand-accent);
+  color: #2D5838;
+  margin-left: auto;
 }
 
 .product-card-price-prefix {
@@ -324,10 +321,16 @@
 }
 
 .product-card-tags {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   gap: var(--space-1);
   margin-top: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .product-card-tags {
+    display: flex;
+  }
 }
 
 .product-tag {
@@ -480,6 +483,7 @@ body.modal-open {
   z-index: var(--z-overlay);
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: opacity var(--duration-normal) var(--ease-out),
     visibility var(--duration-normal) var(--ease-out);
 }
@@ -487,6 +491,7 @@ body.modal-open {
 .modal-overlay.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .modal-container {
@@ -504,12 +509,20 @@ body.modal-open {
   display: flex;
   flex-direction: column;
   transform: translateY(100%);
-  transition: transform var(--duration-slow) var(--ease-spring);
+  transition: transform var(--duration-slow) var(--ease-spring),
+    opacity var(--duration-normal) var(--ease-out),
+    visibility var(--duration-normal) var(--ease-out);
   overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .modal-container.active {
   transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 @media (min-width: 768px) {
@@ -524,13 +537,18 @@ body.modal-open {
     max-height: 85vh;
     border-radius: var(--radius-xl);
     transition: transform var(--duration-normal) var(--ease-spring),
-      opacity var(--duration-normal) var(--ease-out);
+      opacity var(--duration-normal) var(--ease-out),
+      visibility var(--duration-normal) var(--ease-out);
     opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .modal-container.active {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 }
 

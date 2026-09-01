@@ -47,22 +47,6 @@ function renderStatusBadge(product: Product): string {
 }
 
 /**
- * Render unavailable overlay for non-orderable products (over image area).
- */
-function renderUnavailableOverlay(state: AvailabilityState): string {
-  switch (state) {
-    case AvailabilityState.OutOfStock:
-      return '<div class="product-card-unavailable-overlay"><span class="unavailable-label sold-out">Sold Out</span></div>';
-    case AvailabilityState.ComingSoon:
-      return '<div class="product-card-unavailable-overlay"><span class="unavailable-label coming-soon">Coming Soon</span></div>';
-    case AvailabilityState.TemporarilyUnavailable:
-      return '<div class="product-card-unavailable-overlay"><span class="unavailable-label paused">Paused</span></div>';
-    default:
-      return '';
-  }
-}
-
-/**
  * Render an individual product card.
  */
 export function renderProductCard(product: Product, isHidden: boolean = false): string {
@@ -75,7 +59,6 @@ export function renderProductCard(product: Product, isHidden: boolean = false): 
   const unavailableClass = !orderable ? ' unavailable' : '';
   const availabilityBadgeHtml = renderAvailabilityBadge(product.availability);
   const statusBadgeHtml = renderStatusBadge(product);
-  const overlayHtml = !orderable ? renderUnavailableOverlay(product.availability) : '';
 
   const tagsHtml = product.tags && product.tags.length > 0
     ? `
@@ -86,7 +69,7 @@ export function renderProductCard(product: Product, isHidden: boolean = false): 
     : '';
 
   const imageUrl = product.imageUrl || '';
-  const hasBadges = !!(availabilityBadgeHtml || statusBadgeHtml || overlayHtml);
+  const hasBadges = !!(availabilityBadgeHtml || statusBadgeHtml);
 
   const imageHtml = imageUrl
     ? `
@@ -100,11 +83,10 @@ export function renderProductCard(product: Product, isHidden: boolean = false): 
         />
         ${statusBadgeHtml}
         ${availabilityBadgeHtml}
-        ${overlayHtml}
       </div>
     `
     : hasBadges
-      ? `<div class="product-card-badge-container">${statusBadgeHtml}${availabilityBadgeHtml}${overlayHtml}</div>`
+      ? `<div class="product-card-badge-container">${statusBadgeHtml}${availabilityBadgeHtml}</div>`
       : '';
 
   return `
@@ -119,14 +101,13 @@ export function renderProductCard(product: Product, isHidden: boolean = false): 
       <div class="product-card-body">
         <h3 class="product-card-name">${product.name}</h3>
         ${product.shortDescription ? `<p class="product-card-desc">${product.shortDescription}</p>` : ''}
+        ${tagsHtml}
         
         <div class="product-card-footer">
           <div class="product-card-price">
             ${hasMultipleVariants ? '<span class="product-card-price-prefix">From</span>' : ''}${formatPrice(startingPrice)}
           </div>
         </div>
-
-        ${tagsHtml}
       </div>
     </article>
   `;
