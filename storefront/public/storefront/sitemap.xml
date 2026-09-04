@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Homepage & Main Menu -->
+  <url>
+    <loc>https://omkara-store.pages.dev/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://omkara-store.pages.dev/assets/logo.webp</image:loc>
+      <image:title>OMKARA — SEHAT BHI. SWAAD BHI.</image:title>
+      <image:caption>Pure health foods, handcrafted sprouts, smoothies and salads from Bikaner</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://omkara-store.pages.dev/assets/hero_bg.webp</image:loc>
+      <image:title>Nourish Your Body, Honor Your Roots</image:title>
+      <image:caption>Fresh nutritious healthy foods in Bikaner, Rajasthan</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Menu Section Deep Link -->
+  <url>
+    <loc>https://omkara-store.pages.dev/#menu</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Brand Philosophy / Story Deep Link -->
+  <url>
+    <loc>https://omkara-store.pages.dev/#story</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>
