@@ -4,20 +4,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  
+  <title>OMKARA — SEHAT BHI. SWAAD BHI. | Pure Health Foods Bikaner</title>
+
+  <!-- Canonical URL (Prevents duplicate content across pages.dev / custom domain) -->
+  <link rel="canonical" href="https://omkara-store.pages.dev/" />
+
+  <!-- Core Meta Tags -->
   <meta name="description"
-    content="OMKARA — Premium health foods from Bikaner. Handcrafted sprouts, smoothies, salads & healthy snacks. SEHAT BHI. SWAAD BHI." />
+    content="OMKARA — Premium health foods from Bikaner. Handcrafted sprouts, fresh smoothies, crisp salads & roasted healthy snacks. SEHAT BHI. SWAAD BHI. Order directly on WhatsApp." />
   <meta name="keywords"
-    content="Omkara, Bikaner healthy food, sprouts Bikaner, salad delivery Bikaner, fresh smoothies Bikaner, roasted makhana, healthy snacks" />
-  <meta name="robots" content="index, follow" />
+    content="Omkara, Omkara Bikaner, Bikaner healthy food, sprouts Bikaner, salad delivery Bikaner, fresh smoothies Bikaner, roasted makhana, healthy snacks Bikaner, diet food Bikaner, vegan food Bikaner" />
+  <meta name="author" content="OMKARA Health &amp; Wellness" />
+  
+  <!-- Search Engine Crawling Directives (Google, Bravebot, Bingbot, DuckDuckBot) -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+  <!-- Webmaster Verification Placeholders (Update with your verification tokens) -->
+  <!-- Google Search Console: https://search.google.com/search-console -->
+  <meta name="google-site-verification" content="google094729c4f7c99740" />
+  <!-- Bing Webmaster Tools (also indexes into DuckDuckGo): https://www.bing.com/webmasters -->
+  <meta name="msvalidate.01" content="bing-webmaster-verification-token" />
+
+  <!-- Local SEO & Geo Targeting for Bikaner, Rajasthan, India -->
+  <meta name="geo.region" content="IN-RJ" />
+  <meta name="geo.placename" content="Bikaner" />
+  <meta name="geo.position" content="28.022935;73.311916" />
+  <meta name="ICBM" content="28.022935, 73.311916" />
+
+  <!-- Theme & Mobile App Capability -->
   <meta name="theme-color" content="#3B2415" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="OMKARA" />
 
-  <title>OMKARA — SEHAT BHI. SWAAD BHI. | Pure Health Foods Bikaner</title>
-
-  <!-- Favicon -->
+  <!-- Favicon & Web Manifest -->
   <link rel="icon" type="image/svg+xml" href="/assets/icon-192.svg" />
   <link rel="apple-touch-icon" href="/assets/icon-192.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Font Preloading — prevents FOUT/FOIT -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,45 +51,184 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" />
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph / Facebook / WhatsApp Preview -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="OMKARA" />
+  <meta property="og:url" content="https://omkara-store.pages.dev/" />
+  <meta property="og:locale" content="en_IN" />
   <meta property="og:title" content="OMKARA — SEHAT BHI. SWAAD BHI. | Pure Health Foods Bikaner" />
   <meta property="og:description"
-    content="Handcrafted sprouts, smoothies, salads & healthy snacks. Rooted in the heritage of Bikaner." />
-  <meta property="og:image" content="/assets/logo.webp" />
+    content="Handcrafted sprouts, cold smoothies, crisp salads & roasted snacks rooted in Bikaner's wellness heritage. Order fresh on WhatsApp." />
+  <meta property="og:image" content="https://omkara-store.pages.dev/assets/logo.webp" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:alt" content="OMKARA Pure Health Foods Bikaner" />
 
-  <!-- Twitter Card -->
+  <!-- Twitter / X Card Preview -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="OMKARA — SEHAT BHI. SWAAD BHI." />
+  <meta name="twitter:domain" content="omkara-store.pages.dev" />
+  <meta name="twitter:url" content="https://omkara-store.pages.dev/" />
+  <meta name="twitter:title" content="OMKARA — SEHAT BHI. SWAAD BHI. | Pure Health Foods Bikaner" />
   <meta name="twitter:description"
-    content="Premium health foods crafted with Bikaneri tradition. Order fresh sprouts & smoothies on WhatsApp." />
-  <meta name="twitter:image" content="/assets/logo.webp" />
+    content="Handcrafted sprouts, fresh smoothies, and healthy bowls delivered in Bikaner. Order directly on WhatsApp." />
+  <meta name="twitter:image" content="https://omkara-store.pages.dev/assets/logo.webp" />
 
-  <!-- Structured Data (JSON-LD) for Local Business / Food Establishment -->
+  <!-- Schema.org JSON-LD (WebSite, FastFoodRestaurant/LocalBusiness, and FoodMenu) -->
   <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
       {
-        "@context": "https://schema.org",
-        "@type": "FastFoodRestaurant",
+        "@type": "WebSite",
+        "@id": "https://omkara-store.pages.dev/#website",
+        "url": "https://omkara-store.pages.dev/",
         "name": "OMKARA",
-        "image": "/assets/logo.webp",
+        "description": "Pure health foods and daily wellness from Bikaner. Handcrafted sprouts, smoothies, salads & healthy snacks.",
+        "inLanguage": "en-IN",
+        "publisher": {
+          "@id": "https://omkara-store.pages.dev/#restaurant"
+        }
+      },
+      {
+        "@type": "FastFoodRestaurant",
+        "@id": "https://omkara-store.pages.dev/#restaurant",
+        "name": "OMKARA",
+        "alternateName": "Omkara Health & Wellness Bikaner",
+        "url": "https://omkara-store.pages.dev/",
+        "logo": "https://omkara-store.pages.dev/assets/logo.webp",
+        "image": "https://omkara-store.pages.dev/assets/logo.webp",
         "telephone": "+918560078208",
         "email": "omkara.health.wellness@gmail.com",
+        "slogan": "SEHAT BHI. SWAAD BHI.",
+        "description": "OMKARA brings pure vegetarian wholesome nutrition to Bikaner. Handcrafted sprouted legumes, fresh energizing smoothies, farm-fresh salads, and roasted makhana delivered fresh daily.",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Bikaner",
           "addressRegion": "Rajasthan",
+          "postalCode": "334001",
           "addressCountry": "IN"
         },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 28.022935,
+          "longitude": 73.311916
+        },
         "priceRange": "₹₹",
-        "servesCuisine": ["Healthy", "Vegetarian", "Vegan", "Salads", "Smoothies", "Sprouts"],
-        "slogan": "SEHAT BHI. SWAAD BHI."
+        "servesCuisine": [
+          "Healthy Food",
+          "Sprouts",
+          "Smoothies",
+          "Salads",
+          "Vegetarian",
+          "Vegan",
+          "Wellness Snacks"
+        ],
+        "hasMenu": "https://omkara-store.pages.dev/#menu",
+        "acceptsReservations": "false",
+        "paymentAccepted": "Cash, UPI, Online Payment",
+        "currenciesAccepted": "INR",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "07:00",
+            "closes": "22:00"
+          }
+        ],
+        "sameAs": [
+          "https://instagram.com/omkara.health.bkn",
+          "https://wa.me/918560078208"
+        ],
+        "potentialAction": {
+          "@type": "OrderAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://wa.me/918560078208",
+            "inLanguage": "en-IN",
+            "actionPlatform": [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/MobileWebPlatform"
+            ]
+          }
+        }
+      },
+      {
+        "@type": "Menu",
+        "@id": "https://omkara-store.pages.dev/#menu",
+
+        "name": "OMKARA Health Food Menu",
+        "inLanguage": "en-IN",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Handcrafted Sprout Bowls",
+            "description": "High-protein, hygienically germinated mixed sprouts tossed with fresh herbs, lemon, and Himalayan pink salt.",
+            "suitableForDiet": "https://schema.org/VegetarianDiet"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Pure Vitality Smoothies",
+            "description": "Nutrient-dense smoothies blended with cold-pressed seeds, whole nuts, and natural fruits without artificial sugars.",
+            "suitableForDiet": "https://schema.org/VegetarianDiet"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Fresh Garden Salads",
+            "description": "Crisp greens, antioxidant-rich vegetables, and house-crafted guilt-free dressings.",
+            "suitableForDiet": "https://schema.org/VegetarianDiet"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Roasted Fox Nuts (Makhana)",
+            "description": "Slow-roasted foxnuts infused with authentic Bikaneri herbs and spices for clean snacking.",
+            "suitableForDiet": "https://schema.org/VegetarianDiet"
+          }
+        ]
       }
-    </script>
+    ]
+  }
+  </script>
 </head>
 
 <body>
-  <div id="app"></div>
+  <!-- Container for App Mount & Crawlable Static Semantic Fallback -->
+  <div id="app">
+    <!-- Static Semantic Content: Indexed immediately by Googlebot, Bravebot, Bingbot, and DuckDuckBot before JS execution -->
+    <header style="padding: 24px; text-align: center; background-color: #3B2415; color: #FAF5EE;">
+      <h1 style="margin: 0; font-size: 28px; font-family: 'Playfair Display', serif;">OMKARA</h1>
+      <p style="margin: 8px 0 0 0; font-size: 16px; letter-spacing: 0.05em;">SEHAT BHI. SWAAD BHI. | Pure Health Foods Bikaner</p>
+    </header>
+
+    <main style="max-width: 800px; margin: 0 auto; padding: 24px 16px; font-family: 'Inter', sans-serif; color: #1A0F0A;">
+      <section>
+        <h2 style="font-size: 22px; color: #3B2415;">Nourish Your Body, Honor Your Roots</h2>
+        <p style="line-height: 1.6; color: #5C4A3A;">
+          OMKARA is Bikaner's premier health and wellness kitchen. We handcraft wholesome, nutrient-rich foods rooted in Indian Ayurvedic wisdom and modern nutrition. All our ingredients are freshly prepared with zero preservatives and no artificial flavors.
+        </p>
+
+        <h3 style="font-size: 18px; margin-top: 24px; color: #3B2415;">Our Signature Menu Categories</h3>
+        <ul style="line-height: 1.8; color: #5C4A3A;">
+          <li><strong>Handcrafted Sprout Bowls:</strong> Freshly germinated sprouted lentils, moong, and mixed legumes rich in natural living enzymes.</li>
+          <li><strong>Pure Vitality Smoothies:</strong> 100% whole fruits, nuts, seeds, and cold blended nourishment with zero refined sugar.</li>
+          <li><strong>Fresh Garden Salads:</strong> Farm-fresh greens, bell peppers, cucumbers, and homemade cold dressings.</li>
+          <li><strong>Roasted Makhana & Healthy Snacks:</strong> Crisp roasted fox nuts spiced with rock salt and traditional herbs.</li>
+        </ul>
+      </section>
+
+      <section style="margin-top: 32px; border-top: 1px solid #EDE3D5; padding-top: 24px;">
+        <h2 style="font-size: 20px; color: #3B2415;">Order Fresh in Bikaner</h2>
+        <p style="color: #5C4A3A;">
+          We prepare every order fresh. Order directly via WhatsApp for swift delivery across Bikaner.
+        </p>
+        <p>
+          <strong>WhatsApp Orders:</strong> <a href="https://wa.me/918560078208" style="color: #25D366; font-weight: 600;">+91 85600 78208</a><br />
+          <strong>Email:</strong> <a href="mailto:omkara.health.wellness@gmail.com" style="color: #3B2415;">omkara.health.wellness@gmail.com</a><br />
+          <strong>Location:</strong> Bikaner, Rajasthan 334001, India
+        </p>
+      </section>
+    </main>
+  </div>
+
   <script type="module" src="/src/main.ts"></script>
 </body>
 

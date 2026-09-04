@@ -1,7 +1,35 @@
+# ============================================================
+# OMKARA Storefront — robots.txt
+# Configured for Google, Brave, Bing, and DuckDuckGo crawlers
+# ============================================================
+
+# Default rules for all web crawlers
 User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /admin/
 
-# Crawl-delay for polite bots
+# Google crawler (Search & Images)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/
+
+# Bing crawler (powers Bing and DuckDuckGo web index)
+User-agent: Bingbot
+Allow: /
+
+# DuckDuckGo direct crawler
+User-agent: DuckDuckBot
+Allow: /
+
+# Brave Search independent crawler
+User-agent: Bravebot
+Allow: /
+
+# Crawl rate polite guideline
 Crawl-delay: 1
+
+# XML Sitemap location
+Sitemap: https://omkara-store.pages.dev/sitemap.xml
